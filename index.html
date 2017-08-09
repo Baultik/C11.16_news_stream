@@ -6,20 +6,21 @@
     <title>Streamism.tv</title>
 
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-91576843-1', 'auto');
         ga('send', 'pageview');
     </script>
-    <!--<script>//async modern browser version
-        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-        ga('create', 'UA-91576843-1', 'auto');
-        ga('send', 'pageview');
-    </script>-
-    <script async src='https://www.google-analytics.com/analytics.js'></script>-->
 
     <!-- External Script Files -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -31,10 +32,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 
     <!-- Internal Script Files -->
-    <script src="analytics.js"></script>
-    <script type="text/javascript" src="./sunburstView/sunScript.js" defer></script>
-    <script src="script.js"></script>
-    <script src="preview.js"></script>
+    <script src="js/analytics.js"></script>
+    <script type="text/javascript" src="js/dataView.js" defer></script>
+    <script src="js/main.js"></script>
+    <script src="js/preview.js"></script>
 
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -43,8 +44,8 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" type="text/css" href="./sunburstView/sunStyle.css"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/dataStyle.css"/>
 
 
     <!-- Favicons -->
@@ -57,7 +58,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -77,90 +78,129 @@
                         <i class="material-icons">menu</i>
                     </a>
                     <ul id="responsive_nav">
-                        <li><div class="ck-button responsive">
-                            <label>
-                                <input type="checkbox" id="gaming_sm" name="gaming" checked><span><img class="category_icon"
-                                    src="images/icons/glyphicons-322-gamepad.png" height="19" width="27"/></span>
-                            </label>
+                        <li>
+                            <div class="ck-button responsive">
+                                <label>
+                                    <input type="checkbox" id="gaming_sm" name="gaming" checked><span><img
+                                        class="category_icon"
+                                        src="images/icons/glyphicons-322-gamepad.png" height="19" width="27"/></span>
+                                </label>
                             </div>
                         </li>
-                        <li><div class="ck-button responsive">
-                            <label>
-                                <input type="checkbox" id="entertainment_sm" name="entertainment" checked><span><img class="category_icon"
-                                    src="images/icons/glyphicons-691-laptop.png" height="25" width="25"/></span>
-                            </label>
+                        <li>
+                            <div class="ck-button responsive">
+                                <label>
+                                    <input type="checkbox" id="entertainment_sm" name="entertainment" checked><span><img
+                                        class="category_icon"
+                                        src="images/icons/glyphicons-691-laptop.png" height="25" width="25"/></span>
+                                </label>
                             </div>
                         </li>
-                        <li><div class="ck-button responsive">
-                            <label>
-                                <input type="checkbox" id="news_sm" name="news" checked><span><img class="category_icon"
-                                    src="images/icons/glyphicons-609-newspaper.png" height="22" width="25"/></span>
-                            </label>
-                        </div>
+                        <li>
+                            <div class="ck-button responsive">
+                                <label>
+                                    <input type="checkbox" id="news_sm" name="news" checked><span><img
+                                        class="category_icon"
+                                        src="images/icons/glyphicons-609-newspaper.png" height="22" width="25"/></span>
+                                </label>
+                            </div>
                         </li>
-                        <li><div class="ck-button responsive">
-                            <label>
-                                <input type="checkbox" id="sports_sm" name="sports" checked><span><img class="category_icon"
-                                    src="images/icons/glyphicons-330-soccer-ball.png" height="23" width="24"/></span>
-                            </label>
-                        </div>
+                        <li>
+                            <div class="ck-button responsive">
+                                <label>
+                                    <input type="checkbox" id="sports_sm" name="sports" checked><span><img
+                                        class="category_icon"
+                                        src="images/icons/glyphicons-330-soccer-ball.png" height="23"
+                                        width="24"/></span>
+                                </label>
+                            </div>
                         </li>
-                        <li><div class="ck-button responsive">
-                            <label>
-                                <input type="checkbox" id="people_sm" name="people" checked><span><img class="category_icon"
-                                    src="images/icons/glyphicons-500-family.png" height="22" width="35"/></span>
-                            </label>
-                        </div>
+                        <li>
+                            <div class="ck-button responsive">
+                                <label>
+                                    <input type="checkbox" id="people_sm" name="people" checked><span><img
+                                        class="category_icon"
+                                        src="images/icons/glyphicons-500-family.png" height="22" width="35"/></span>
+                                </label>
+                            </div>
                         </li>
-                        <li><div class="ck-button responsive">
-                            <label>
-                                <input type="checkbox" id="misc_sm" name="misc" checked><span><img class="category_icon"
-                                    src="images/icons/glyphicons-70-gift.png" height="25" width="24"/></span>
-                            </label>
-                        </div>
+                        <li>
+                            <div class="ck-button responsive">
+                                <label>
+                                    <input type="checkbox" id="misc_sm" name="misc" checked><span><img
+                                        class="category_icon"
+                                        src="images/icons/glyphicons-70-gift.png" height="25" width="24"/></span>
+                                </label>
+                            </div>
                         </li>
                     </ul>
                 </div>
                 <!--show on medium and above-->
                 <div id="top_nav" class="top_nav hide-on-med-and-down">
                     <div class="info_tooltip tooltipped" data-position="bottom" data-delay="50"
-                         data-tooltip="Welcome to Streamism.tv! Click on any thumbnail below to preview.
+                         data-tooltip="Welcome to Streamism.tv! Click on any stream below to preview.
                           Click on a category above to decide what you want to see. Everything here is happening live. Stream on!">
                         <i class="small material-icons">info_outline</i>
                     </div>
                     <div class="ck-button">
-                        <label title="Games &amp; Gaming">
-                            <input type="checkbox" id="gaming" name="gaming" checked><span>Games</span>
+                        <label>
+                            <input type="checkbox" id="gaming" name="gaming" checked><span class="tooltipped"
+                                                                                           data-position="bottom"
+                                                                                           data-delay="50"
+                                                                                           data-tooltip="Games &amp; Gaming"
+                                                                                           style="position:initial">Games</span>
                         </label>
                     </div>
                     <div class="ck-button">
-                        <label title="Entertainment, Music, Film, &amp; Comedy">
-                            <input type="checkbox" id="entertainment" name="entertainment" checked><span>Entertainment</span>
+                        <label>
+                            <input type="checkbox" id="entertainment" name="entertainment" checked><span
+                                class="tooltipped" data-position="bottom" data-delay="50"
+                                data-tooltip="Entertainment, Music, Film, &amp; Comedy" style="position:initial">Entertainment</span>
                         </label>
                     </div>
                     <div class="ck-button">
-                        <label title="World News, Events, &amp; Travel">
-                            <input type="checkbox" id="news" name="news" checked><span>News</span>
+                        <label>
+                            <input type="checkbox" id="news" name="news" checked><span class="tooltipped"
+                                                                                       data-position="bottom"
+                                                                                       data-delay="50"
+                                                                                       data-tooltip="World News, Events, &amp; Travel"
+                                                                                       style="position:initial">News</span>
                         </label>
                     </div>
                     <div class="ck-button">
-                        <label title="Sports and Sporting Events">
-                            <input type="checkbox" id="sports" name="sports" checked><span>Sports</span>
+                        <label>
+                            <input type="checkbox" id="sports" name="sports" checked><span class="tooltipped"
+                                                                                           data-position="bottom"
+                                                                                           data-delay="50"
+                                                                                           data-tooltip="Sports and Sporting Events"
+                                                                                           style="position:initial">Sports</span>
                         </label>
                     </div>
                     <div class="ck-button">
-                        <label title="People, Blogs, &amp; Social Media">
-                            <input type="checkbox" id="people" name="people" checked><span>People</span>
+                        <label>
+                            <input type="checkbox" id="people" name="people" checked><span class="tooltipped"
+                                                                                           data-position="bottom"
+                                                                                           data-delay="50"
+                                                                                           data-tooltip="People, Blogs, &amp; Social Media"
+                                                                                           style="position:initial">People</span>
                         </label>
                     </div>
                     <div class="ck-button">
-                        <label title="Animals, Science, &amp; Everything Else!">
-                            <input type="checkbox" id="misc" name="misc" checked><span>Misc</span>
+                        <label>
+                            <input type="checkbox" id="misc" name="misc" checked><span class="tooltipped"
+                                                                                       data-position="bottom"
+                                                                                       data-delay="50"
+                                                                                       data-tooltip="Animals, Science, &amp; Everything Else!"
+                                                                                       style="position:initial">Misc</span>
                         </label>
                     </div>
                 </div>
                 <div class="switch hide-on-med-and-down">
-                    <label><i class="fa fa-circle-o" aria-hidden="true"></i><input type="checkbox" id="change_view" checked><span class="lever"></span><i class="fa fa-th" aria-hidden="true"></i></label>
+                    <label><i class="fa fa-circle-o tooltipped" data-position="bottom" data-delay="50"
+                              data-tooltip="Data View" style="position:initial" aria-hidden="true"></i><input
+                            type="checkbox" id="change_view" checked><span class="lever"></span><i
+                            class="fa fa-th tooltipped" data-position="bottom" data-delay="50"
+                            data-tooltip="Thumbnail View" style="position:initial" aria-hidden="true"></i></label>
                 </div>
                 <div class="logo_container">
                     <img class="logo" src="images/logo1.png"/>
@@ -169,19 +209,32 @@
                     <p class="header_tagline hide-on-large-only">Stream on!</p>
 
                 </div>
-                <div id="update_div"><a id="update_btn" class="waves-effect waves-light btn tooltipped hide-on-med-and-down" data-position="bottom" data-delay="50" data-tooltip="Click here to update streams"><i class="fa fa-refresh" id="refresh_btn" aria-hidden="true"></i></a></div>
+                <div id="update_div"><a id="update_btn"
+                                        class="waves-effect waves-light btn tooltipped hide-on-med-and-down"
+                                        data-position="bottom" data-delay="50"
+                                        data-tooltip="Click here to update streams"><i class="fa fa-refresh"
+                                                                                       id="refresh_btn"
+                                                                                       aria-hidden="true"></i></a></div>
                 <!--responsive button-->
-                <div id="update_div_sm"><a id="update_btn_small" class="waves-effect waves-light btn tooltipped hide-on-large-only" data-position="bottom" data-delay="50" data-tooltip="Click here to update streams"><i class="fa fa-refresh" id="refresh_btn_small" aria-hidden="true"></i></a></div>
+                <div id="update_div_sm"><a id="update_btn_small"
+                                           class="waves-effect waves-light btn tooltipped hide-on-large-only"
+                                           data-position="bottom" data-delay="50"
+                                           data-tooltip="Click here to update streams"><i class="fa fa-refresh"
+                                                                                          id="refresh_btn_small"
+                                                                                          aria-hidden="true"></i></a>
+                </div>
                 <div class="right">
-                    <div class="login_status"></div>
+                    <div class="login_status tooltipped" data-position="bottom" data-delay="50"
+                         data-tooltip="Log in to Streamism" style="position:initial"></div>
                     <div id="firebaseui-auth-container"></div>
                     <div class="login_menu hide">
                         <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Watch List</a>
                         <a class="waves-effect waves-light btn sign_out_button" id="sign-out">Sign Out</i></a>
                     </div>
                     <div class="valign-wrapper col s5 pull-s7">
-                     <p class="welcome_text valign hide-on-med-and-down"></p>
-                        <img src="" alt="" class="circle profile-pic valign">
+                        <p class="welcome_text valign hide-on-med-and-down"></p>
+                        <img src="" alt="" class="circle profile-pic valign tooltipped" data-position="bottom"
+                             data-delay="50" data-tooltip="User Menu" style="position:initial">
                     </div>
                 </div>
             </div>
@@ -198,41 +251,49 @@
             <div class="spinner-layer spinner-blue">
                 <div class="circle-clipper left">
                     <div class="circle"></div>
-                </div><div class="gap-patch">
-                <div class="circle"></div>
-            </div><div class="circle-clipper right">
-                <div class="circle"></div>
-            </div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
             </div>
 
             <div class="spinner-layer spinner-red">
                 <div class="circle-clipper left">
                     <div class="circle"></div>
-                </div><div class="gap-patch">
-                <div class="circle"></div>
-            </div><div class="circle-clipper right">
-                <div class="circle"></div>
-            </div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
             </div>
 
             <div class="spinner-layer spinner-yellow">
                 <div class="circle-clipper left">
                     <div class="circle"></div>
-                </div><div class="gap-patch">
-                <div class="circle"></div>
-            </div><div class="circle-clipper right">
-                <div class="circle"></div>
-            </div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
             </div>
 
             <div class="spinner-layer spinner-green">
                 <div class="circle-clipper left">
                     <div class="circle"></div>
-                </div><div class="gap-patch">
-                <div class="circle"></div>
-            </div><div class="circle-clipper right">
-                <div class="circle"></div>
-            </div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -243,18 +304,17 @@
 <!--SUNBURST VIEW-->
 <div id="sunburst_sequence_container">
     <div>
-        <div id="info_window">
-            <div id="info_title"><h5>Streams</h5></div>
-            <div id="explanation" style="visibility: hidden;">
-                <div id="percentage"></div>
-                <div id="title"></div>
-                <div id="icon"></div>
-            </div>
-        </div>
         <div id="chart">
-            <div id='viewport' class="viewport" style="visibility: hidden;">
-                <div >
-                    <img id="thumbnail" src="">
+            <div id='viewport' class="viewport">
+                <div id="sunbackground">
+                    <img src="images/full_logo.png" alt="logo">
+                </div>
+                <div>
+                    <img id="thumbnail" src="" style="visibility: hidden;">
+                    <div id="explanation" style="visibility: hidden;">
+                        <div id="percentage"></div>
+                        <div id="title"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -265,14 +325,21 @@
     </script>
 </div>
 <!--SUNBURST VIEW-->
-    <div id="preview">
-        <div id="preview-btn-container">
-            <a id="close_preview" class="embed-btn btn-floating waves-effect waves-light red tooltipped" data-position="bottom" data-delay="50" data-tooltip="Close"><i class="material-icons">clear</i></a>
-            <a id="open_full" class="embed-btn btn-floating waves-effect waves-light blue tooltipped" data-position="bottom" data-delay="50" data-tooltip="Fullscreen"><i class="material-icons">fullscreen</i></a>
-            <a id="close_full" class="embed-btn btn-floating waves-effect waves-light blue tooltipped" data-position="bottom" data-delay="50" data-tooltip="Preview"><i class="material-icons">fullscreen_exit</i></a>
-            <a id="add_watch" class="embed-btn btn-floating waves-effect waves-light grey tooltipped" data-position="bottom" data-delay="50" data-tooltip="Add to watch list"><i class="material-icons add_watch_icon">visibility_off</i></a>
-            <a id="share_btn" class="embed-btn btn-floating waves-effect waves-light teal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Share"><i class="material-icons">present_to_all</i></a>
-        </div>
+<div id="preview">
+    <div id="preview-btn-container">
+        <a id="close_preview" class="embed-btn btn-floating waves-effect waves-light red tooltipped"
+           data-position="bottom" data-delay="50" data-tooltip="Close"><i class="material-icons">clear</i></a>
+        <a id="open_full" class="embed-btn btn-floating waves-effect waves-light blue tooltipped" data-position="bottom"
+           data-delay="50" data-tooltip="Fullscreen"><i class="material-icons">fullscreen</i></a>
+        <a id="close_full" class="embed-btn btn-floating waves-effect waves-light blue tooltipped"
+           data-position="bottom" data-delay="50" data-tooltip="Preview"><i
+                class="material-icons">fullscreen_exit</i></a>
+        <a id="add_watch" class="embed-btn btn-floating waves-effect waves-light grey tooltipped" data-position="bottom"
+           data-delay="50" data-tooltip="Watch List Add/Remove"><i
+                class="material-icons add_watch_icon">visibility_off</i></a>
+        <a id="share_btn" class="embed-btn btn-floating waves-effect waves-light teal tooltipped" data-position="bottom"
+           data-delay="50" data-tooltip="Share"><i class="material-icons">present_to_all</i></a>
     </div>
+</div>
 </body>
 </html>
