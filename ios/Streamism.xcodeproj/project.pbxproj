@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7793A58B1F3BD3C80085085B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793A58A1F3BD3C80085085B /* AppDelegate.swift */; };
-		7793A58D1F3BD3C80085085B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793A58C1F3BD3C80085085B /* ViewController.swift */; };
 		7793A5901F3BD3C80085085B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7793A58E1F3BD3C80085085B /* Main.storyboard */; };
 		7793A5921F3BD3C80085085B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7793A5911F3BD3C80085085B /* Assets.xcassets */; };
 		7793A5951F3BD3C80085085B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7793A5931F3BD3C80085085B /* LaunchScreen.storyboard */; };
 		7793A5A01F3BD3C80085085B /* StreamismTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793A59F1F3BD3C80085085B /* StreamismTests.swift */; };
 		7793A5AB1F3BD3C80085085B /* StreamismUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793A5AA1F3BD3C80085085B /* StreamismUITests.swift */; };
+		77A50A1D1F439C0D00A3D5BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A50A1C1F439C0D00A3D5BA /* AppDelegate.swift */; };
+		77A50A1F1F439C1B00A3D5BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A50A1E1F439C1B00A3D5BA /* ViewController.swift */; };
+		77A50A231F439FB300A3D5BA /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A50A221F439FB300A3D5BA /* Stream.swift */; };
+		77A50A281F43BCF300A3D5BA /* StreamFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A50A271F43BCF300A3D5BA /* StreamFlowLayout.swift */; };
+		77A50A2A1F43C0A800A3D5BA /* StreamGridController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A50A291F43C0A800A3D5BA /* StreamGridController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +38,6 @@
 
 /* Begin PBXFileReference section */
 		7793A5871F3BD3C80085085B /* Streamism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streamism.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7793A58A1F3BD3C80085085B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7793A58C1F3BD3C80085085B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7793A58F1F3BD3C80085085B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7793A5911F3BD3C80085085B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7793A5941F3BD3C80085085B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,11 @@
 		7793A5A61F3BD3C80085085B /* StreamismUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StreamismUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7793A5AA1F3BD3C80085085B /* StreamismUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamismUITests.swift; sourceTree = "<group>"; };
 		7793A5AC1F3BD3C80085085B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77A50A1C1F439C0D00A3D5BA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = src/AppDelegate.swift; sourceTree = "<group>"; };
+		77A50A1E1F439C1B00A3D5BA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = src/views/ViewController.swift; sourceTree = "<group>"; };
+		77A50A221F439FB300A3D5BA /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stream.swift; path = src/model/Stream.swift; sourceTree = "<group>"; };
+		77A50A271F43BCF300A3D5BA /* StreamFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamFlowLayout.swift; path = src/views/StreamFlowLayout.swift; sourceTree = "<group>"; };
+		77A50A291F43C0A800A3D5BA /* StreamGridController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamGridController.swift; path = src/views/StreamGridController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +103,7 @@
 		7793A5891F3BD3C80085085B /* Streamism */ = {
 			isa = PBXGroup;
 			children = (
-				7793A58A1F3BD3C80085085B /* AppDelegate.swift */,
-				7793A58C1F3BD3C80085085B /* ViewController.swift */,
+				77A50A1A1F439BAE00A3D5BA /* src */,
 				7793A58E1F3BD3C80085085B /* Main.storyboard */,
 				7793A5911F3BD3C80085085B /* Assets.xcassets */,
 				7793A5931F3BD3C80085085B /* LaunchScreen.storyboard */,
@@ -123,6 +128,34 @@
 				7793A5AC1F3BD3C80085085B /* Info.plist */,
 			);
 			path = StreamismUITests;
+			sourceTree = "<group>";
+		};
+		77A50A1A1F439BAE00A3D5BA /* src */ = {
+			isa = PBXGroup;
+			children = (
+				77A50A241F439FC700A3D5BA /* model */,
+				77A50A1C1F439C0D00A3D5BA /* AppDelegate.swift */,
+				77A50A1B1F439BB800A3D5BA /* views */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		77A50A1B1F439BB800A3D5BA /* views */ = {
+			isa = PBXGroup;
+			children = (
+				77A50A1E1F439C1B00A3D5BA /* ViewController.swift */,
+				77A50A271F43BCF300A3D5BA /* StreamFlowLayout.swift */,
+				77A50A291F43C0A800A3D5BA /* StreamGridController.swift */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		77A50A241F439FC700A3D5BA /* model */ = {
+			isa = PBXGroup;
+			children = (
+				77A50A221F439FB300A3D5BA /* Stream.swift */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +226,7 @@
 				TargetAttributes = {
 					7793A5861F3BD3C80085085B = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					7793A59A1F3BD3C80085085B = {
@@ -259,8 +293,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7793A58D1F3BD3C80085085B /* ViewController.swift in Sources */,
-				7793A58B1F3BD3C80085085B /* AppDelegate.swift in Sources */,
+				77A50A1F1F439C1B00A3D5BA /* ViewController.swift in Sources */,
+				77A50A1D1F439C0D00A3D5BA /* AppDelegate.swift in Sources */,
+				77A50A231F439FB300A3D5BA /* Stream.swift in Sources */,
+				77A50A2A1F43C0A800A3D5BA /* StreamGridController.swift in Sources */,
+				77A50A281F43BCF300A3D5BA /* StreamFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,10 +451,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Streamism/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.baultik.Streamism;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -426,6 +465,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Streamism/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.baultik.Streamism;
@@ -507,6 +547,7 @@
 				7793A5B11F3BD3C80085085B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7793A5B21F3BD3C80085085B /* Build configuration list for PBXNativeTarget "StreamismTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +556,7 @@
 				7793A5B41F3BD3C80085085B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7793A5B51F3BD3C80085085B /* Build configuration list for PBXNativeTarget "StreamismUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +565,7 @@
 				7793A5B71F3BD3C80085085B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
