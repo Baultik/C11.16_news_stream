@@ -16,6 +16,9 @@ class StreamGridController: UICollectionViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        streamFlowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        streamFlowLayout.minimumInteritemSpacing = 0
+        streamFlowLayout.minimumLineSpacing = 0
         collectionView?.collectionViewLayout = streamFlowLayout
     }
 
@@ -25,12 +28,18 @@ class StreamGridController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return 2
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Stream", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Stream", for: indexPath) as! StreamGridCell
+        //cell.loadImage(from: "")
         return cell
+    }
+    
+    override func collectionView(_ collectionView:UICollectionView, didEndDisplaying cell:UICollectionViewCell, forItemAt indexPath:IndexPath) {
+        let cell = cell as! StreamGridCell
+        cell.cancelImageLoad()
     }
 
     /*

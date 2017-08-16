@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A61441FC267525D16E5916F /* Pods_StreamismTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BFAF717610073C0F1FE623 /* Pods_StreamismTests.framework */; };
+		5328C24E1C932ECD0DE3C341 /* Pods_StreamismUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BE6E0F10FBD02F6C5CDE48 /* Pods_StreamismUITests.framework */; };
+		7760EB971F45016D008AD53D /* StreamGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760EB961F45016D008AD53D /* StreamGridCell.swift */; };
 		7793A5901F3BD3C80085085B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7793A58E1F3BD3C80085085B /* Main.storyboard */; };
 		7793A5921F3BD3C80085085B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7793A5911F3BD3C80085085B /* Assets.xcassets */; };
 		7793A5951F3BD3C80085085B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7793A5931F3BD3C80085085B /* LaunchScreen.storyboard */; };
@@ -17,6 +20,7 @@
 		77A50A231F439FB300A3D5BA /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A50A221F439FB300A3D5BA /* Stream.swift */; };
 		77A50A281F43BCF300A3D5BA /* StreamFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A50A271F43BCF300A3D5BA /* StreamFlowLayout.swift */; };
 		77A50A2A1F43C0A800A3D5BA /* StreamGridController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A50A291F43C0A800A3D5BA /* StreamGridController.swift */; };
+		856A34880AB37662D9B67C31 /* Pods_Streamism.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4FDFCAE34FA39C2F806DA0 /* Pods_Streamism.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		129DAE19A9397C54A32D7E2E /* Pods-StreamismTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreamismTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreamismTests/Pods-StreamismTests.release.xcconfig"; sourceTree = "<group>"; };
+		18D70BDFABF7A6AAB6976E25 /* Pods-Streamism.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Streamism.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Streamism/Pods-Streamism.debug.xcconfig"; sourceTree = "<group>"; };
+		4D4FDFCAE34FA39C2F806DA0 /* Pods_Streamism.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Streamism.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DF7373421CFE7E6D56A0EE9 /* Pods-StreamismUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreamismUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreamismUITests/Pods-StreamismUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		695A36D1DDB7C0E66318CF0C /* Pods-StreamismUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreamismUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreamismUITests/Pods-StreamismUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7760EB961F45016D008AD53D /* StreamGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamGridCell.swift; path = src/views/StreamGridCell.swift; sourceTree = "<group>"; };
 		7793A5871F3BD3C80085085B /* Streamism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streamism.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7793A58F1F3BD3C80085085B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7793A5911F3BD3C80085085B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +63,10 @@
 		77A50A221F439FB300A3D5BA /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stream.swift; path = src/model/Stream.swift; sourceTree = "<group>"; };
 		77A50A271F43BCF300A3D5BA /* StreamFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamFlowLayout.swift; path = src/views/StreamFlowLayout.swift; sourceTree = "<group>"; };
 		77A50A291F43C0A800A3D5BA /* StreamGridController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamGridController.swift; path = src/views/StreamGridController.swift; sourceTree = "<group>"; };
+		A9CF2D51E829ECE1697E332B /* Pods-Streamism.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Streamism.release.xcconfig"; path = "Pods/Target Support Files/Pods-Streamism/Pods-Streamism.release.xcconfig"; sourceTree = "<group>"; };
+		B2484B119999F179F5208FB4 /* Pods-StreamismTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreamismTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreamismTests/Pods-StreamismTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C3BE6E0F10FBD02F6C5CDE48 /* Pods_StreamismUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreamismUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5BFAF717610073C0F1FE623 /* Pods_StreamismTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreamismTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				856A34880AB37662D9B67C31 /* Pods_Streamism.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A61441FC267525D16E5916F /* Pods_StreamismTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +90,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5328C24E1C932ECD0DE3C341 /* Pods_StreamismUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B49131CEAEAA789D3C80D30 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				18D70BDFABF7A6AAB6976E25 /* Pods-Streamism.debug.xcconfig */,
+				A9CF2D51E829ECE1697E332B /* Pods-Streamism.release.xcconfig */,
+				B2484B119999F179F5208FB4 /* Pods-StreamismTests.debug.xcconfig */,
+				129DAE19A9397C54A32D7E2E /* Pods-StreamismTests.release.xcconfig */,
+				4DF7373421CFE7E6D56A0EE9 /* Pods-StreamismUITests.debug.xcconfig */,
+				695A36D1DDB7C0E66318CF0C /* Pods-StreamismUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7793A57E1F3BD3C80085085B = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +117,8 @@
 				7793A59E1F3BD3C80085085B /* StreamismTests */,
 				7793A5A91F3BD3C80085085B /* StreamismUITests */,
 				7793A5881F3BD3C80085085B /* Products */,
+				1B49131CEAEAA789D3C80D30 /* Pods */,
+				BF176E2B70579B89F04A6FFE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +178,7 @@
 				77A50A1E1F439C1B00A3D5BA /* ViewController.swift */,
 				77A50A271F43BCF300A3D5BA /* StreamFlowLayout.swift */,
 				77A50A291F43C0A800A3D5BA /* StreamGridController.swift */,
+				7760EB961F45016D008AD53D /* StreamGridCell.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -158,6 +191,16 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		BF176E2B70579B89F04A6FFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D4FDFCAE34FA39C2F806DA0 /* Pods_Streamism.framework */,
+				D5BFAF717610073C0F1FE623 /* Pods_StreamismTests.framework */,
+				C3BE6E0F10FBD02F6C5CDE48 /* Pods_StreamismUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -165,9 +208,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7793A5AF1F3BD3C80085085B /* Build configuration list for PBXNativeTarget "Streamism" */;
 			buildPhases = (
+				DD7FB9F196A6DC8B07D6C0AC /* [CP] Check Pods Manifest.lock */,
 				7793A5831F3BD3C80085085B /* Sources */,
 				7793A5841F3BD3C80085085B /* Frameworks */,
 				7793A5851F3BD3C80085085B /* Resources */,
+				EFBA1D0CAD9346A41D466BF6 /* [CP] Embed Pods Frameworks */,
+				CE5B0E21656BCA3C90783A87 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,9 +228,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7793A5B21F3BD3C80085085B /* Build configuration list for PBXNativeTarget "StreamismTests" */;
 			buildPhases = (
+				8DF5CE76C281FE588CAFF25A /* [CP] Check Pods Manifest.lock */,
 				7793A5971F3BD3C80085085B /* Sources */,
 				7793A5981F3BD3C80085085B /* Frameworks */,
 				7793A5991F3BD3C80085085B /* Resources */,
+				22A90F2000BBB377EECE0156 /* [CP] Embed Pods Frameworks */,
+				F6A86B71A8ACB6C6F55CDAE1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -200,9 +249,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7793A5B51F3BD3C80085085B /* Build configuration list for PBXNativeTarget "StreamismUITests" */;
 			buildPhases = (
+				1440DBC3ED9B90204DEC9013 /* [CP] Check Pods Manifest.lock */,
 				7793A5A21F3BD3C80085085B /* Sources */,
 				7793A5A31F3BD3C80085085B /* Frameworks */,
 				7793A5A41F3BD3C80085085B /* Resources */,
+				D5A882F64544758CDE985B4C /* [CP] Embed Pods Frameworks */,
+				2B1C99FA37437A8031AE3B03 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -288,6 +340,158 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1440DBC3ED9B90204DEC9013 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StreamismUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		22A90F2000BBB377EECE0156 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StreamismTests/Pods-StreamismTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B1C99FA37437A8031AE3B03 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StreamismUITests/Pods-StreamismUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DF5CE76C281FE588CAFF25A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StreamismTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE5B0E21656BCA3C90783A87 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Streamism/Pods-Streamism-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5A882F64544758CDE985B4C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StreamismUITests/Pods-StreamismUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD7FB9F196A6DC8B07D6C0AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Streamism-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFBA1D0CAD9346A41D466BF6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Streamism/Pods-Streamism-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Streamism/Pods-Streamism-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6A86B71A8ACB6C6F55CDAE1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StreamismTests/Pods-StreamismTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7793A5831F3BD3C80085085B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -296,6 +500,7 @@
 				77A50A1F1F439C1B00A3D5BA /* ViewController.swift in Sources */,
 				77A50A1D1F439C0D00A3D5BA /* AppDelegate.swift in Sources */,
 				77A50A231F439FB300A3D5BA /* Stream.swift in Sources */,
+				7760EB971F45016D008AD53D /* StreamGridCell.swift in Sources */,
 				77A50A2A1F43C0A800A3D5BA /* StreamGridController.swift in Sources */,
 				77A50A281F43BCF300A3D5BA /* StreamFlowLayout.swift in Sources */,
 			);
@@ -449,6 +654,7 @@
 		};
 		7793A5B01F3BD3C80085085B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18D70BDFABF7A6AAB6976E25 /* Pods-Streamism.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -463,6 +669,7 @@
 		};
 		7793A5B11F3BD3C80085085B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9CF2D51E829ECE1697E332B /* Pods-Streamism.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -476,6 +683,7 @@
 		};
 		7793A5B31F3BD3C80085085B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2484B119999F179F5208FB4 /* Pods-StreamismTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +698,7 @@
 		};
 		7793A5B41F3BD3C80085085B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 129DAE19A9397C54A32D7E2E /* Pods-StreamismTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -504,6 +713,7 @@
 		};
 		7793A5B61F3BD3C80085085B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DF7373421CFE7E6D56A0EE9 /* Pods-StreamismUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = StreamismUITests/Info.plist;
@@ -517,6 +727,7 @@
 		};
 		7793A5B71F3BD3C80085085B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 695A36D1DDB7C0E66318CF0C /* Pods-StreamismUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = StreamismUITests/Info.plist;

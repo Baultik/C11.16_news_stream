@@ -26,7 +26,7 @@ class StreamFlowLayout: UICollectionViewFlowLayout {
     
     init(columns:Int) {
         self.columns = columns
-        super.init()
+        super.init()        
     }
     
     required init?(coder aDecoder: NSCoder) {
