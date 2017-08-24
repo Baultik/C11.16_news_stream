@@ -25,7 +25,7 @@ class StreamDatabase {
             for category in cats {
                 let cat = category["id"] as? String
                 let streams = category["streams"] as? [[String:String]]
-                let streamCat = StreamCategory(type:StreamType(rawValue: cat!)!,data:streams!)
+                let streamCat = StreamCategory(type:StreamCategoryType(rawValue: cat!)!,data:streams!)
                 self.masterList.append(streamCat)
             }
         })
@@ -33,11 +33,11 @@ class StreamDatabase {
     
     
     
-    func shuffle(list:[StreamCategory], categories:[StreamType]) -> [Stream] {
+    func shuffle(list:[StreamCategory], categories:[StreamCategoryType]) -> [Stream] {
         var filteredList = [Stream]()
         var filteredCats = [StreamCategory]()
         
-        //filter out cats if necessary - may move this and pass in filtered list
+        //filter out cats if necessary - assumes one of each type in the array
         for type in categories {
             for cat in list {
                 if type.rawValue == cat.type.rawValue {
@@ -47,6 +47,13 @@ class StreamDatabase {
         }
         
         //get max length
+        var maxCount = 0
+        for cat in filteredCats {
+            if cat.streams.count > maxCount {
+                maxCount = cat.streams.count
+            }
+        }
+        
         
         //Sort 1 of each cat at a time - better way?
         //go through each category - make temp array holding i element of each

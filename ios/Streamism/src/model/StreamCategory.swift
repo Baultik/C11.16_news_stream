@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum StreamType:String {
+enum StreamCategoryType:String {
     case Gaming = "gaming"
     case Entertainment = "entertainment"
     case People = "people"
@@ -18,10 +18,10 @@ enum StreamType:String {
 }
 
 struct StreamCategory {
-    let type:StreamType
+    let type:StreamCategoryType
     let streams: [Stream]
     
-    init(type:StreamType, data:[[String:String]]) {
+    init(type:StreamCategoryType, data:[[String:String]]) {
         self.type = type
         var streams = [Stream]()
         for streamData in data {

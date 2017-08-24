@@ -12,6 +12,7 @@
 		771C355D1F4B8FEE00BC3764 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 771C355C1F4B8FEE00BC3764 /* GoogleService-Info.plist */; };
 		771C355F1F4B91FA00BC3764 /* StreamDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771C355E1F4B91FA00BC3764 /* StreamDatabase.swift */; };
 		771C35611F4BADFD00BC3764 /* StreamCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771C35601F4BADFD00BC3764 /* StreamCategory.swift */; };
+		771C35631F4E70D900BC3764 /* StreamCategoryPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771C35621F4E70D900BC3764 /* StreamCategoryPreference.swift */; };
 		7760EB971F45016D008AD53D /* StreamGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760EB961F45016D008AD53D /* StreamGridCell.swift */; };
 		7793A5901F3BD3C80085085B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7793A58E1F3BD3C80085085B /* Main.storyboard */; };
 		7793A5921F3BD3C80085085B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7793A5911F3BD3C80085085B /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		771C355C1F4B8FEE00BC3764 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		771C355E1F4B91FA00BC3764 /* StreamDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamDatabase.swift; path = src/model/StreamDatabase.swift; sourceTree = "<group>"; };
 		771C35601F4BADFD00BC3764 /* StreamCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamCategory.swift; path = src/model/StreamCategory.swift; sourceTree = "<group>"; };
+		771C35621F4E70D900BC3764 /* StreamCategoryPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamCategoryPreference.swift; path = src/model/StreamCategoryPreference.swift; sourceTree = "<group>"; };
 		7760EB961F45016D008AD53D /* StreamGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamGridCell.swift; path = src/views/StreamGridCell.swift; sourceTree = "<group>"; };
 		7793A5871F3BD3C80085085B /* Streamism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streamism.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7793A58F1F3BD3C80085085B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				77A50A221F439FB300A3D5BA /* Stream.swift */,
 				771C355E1F4B91FA00BC3764 /* StreamDatabase.swift */,
 				771C35601F4BADFD00BC3764 /* StreamCategory.swift */,
+				771C35621F4E70D900BC3764 /* StreamCategoryPreference.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 			files = (
 				77A50A1F1F439C1B00A3D5BA /* ViewController.swift in Sources */,
 				771C35611F4BADFD00BC3764 /* StreamCategory.swift in Sources */,
+				771C35631F4E70D900BC3764 /* StreamCategoryPreference.swift in Sources */,
 				77A50A1D1F439C0D00A3D5BA /* AppDelegate.swift in Sources */,
 				77A50A231F439FB300A3D5BA /* Stream.swift in Sources */,
 				7760EB971F45016D008AD53D /* StreamGridCell.swift in Sources */,
