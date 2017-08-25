@@ -33,7 +33,7 @@ class StreamDatabase {
     
     
     
-    func shuffle(list:[StreamCategory], categories:[StreamCategoryType]) -> [Stream] {
+    private func shuffle(list:[StreamCategory], categories:[StreamCategoryType]) -> [Stream] {
         var filteredList = [Stream]()
         var filteredCats = [StreamCategory]()
         
@@ -55,11 +55,28 @@ class StreamDatabase {
         }
         
         
-        //Sort 1 of each cat at a time - better way?
-        //go through each category - make temp array holding i element of each
-        //random sort temp array
-        //add array elements to final list
-        
+        for j in 0..<maxCount {
+            var sub = [Stream]();
+            
+            //Sort 1 of each cat at a time - better way?
+            //go through each category - make temp array holding count element of each
+            for k in 0..<filteredCats.count {
+                let category = filteredCats[k];
+                if category.streams.count > j  {
+                    sub.append(category.streams[j])
+                }
+            }
+            
+            //random sort temp array
+            //add array elements to final list
+            if (sub.count > 0) {
+                sub.sort(by: { (stream1, stream2) -> Bool in
+                  return arc4random_uniform(2) == 0
+                })
+                filteredList.append(contentsOf: sub)
+            }
+        }
+
         return filteredList
     }
 }
