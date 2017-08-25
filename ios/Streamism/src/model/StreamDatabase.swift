@@ -11,9 +11,10 @@ import FirebaseDatabase
 
 
 class StreamDatabase {
-    var ref: DatabaseReference!
-    var handle:UInt = 0
+    private var ref: DatabaseReference!
+    private var handle:UInt = 0
     private var masterList = [StreamCategory]()
+    private(set) var streamList:[Stream]?
     
     init() {
         ref = Database.database().reference(withPath: "-KbHuqtKNuu96svHRgjz")
@@ -28,23 +29,22 @@ class StreamDatabase {
                 let streamCat = StreamCategory(type:StreamCategoryType(rawValue: cat!)!,data:streams!)
                 self.masterList.append(streamCat)
             }
+            self.streamList = self.shuffle(list: self.masterList, preference: StreamCategoryPreference())
         })
     }
     
-    
-    
-    private func shuffle(list:[StreamCategory], categories:[StreamCategoryType]) -> [Stream] {
+    private func shuffle(list:[StreamCategory], preference:StreamCategoryPreference) -> [Stream] {
         var filteredList = [Stream]()
         var filteredCats = [StreamCategory]()
         
         //filter out cats if necessary - assumes one of each type in the array
-        for type in categories {
-            for cat in list {
-                if type.rawValue == cat.type.rawValue {
-                    filteredCats.append(cat)
-                }
+        
+        for cat in list {
+            if preference.hasType(type: cat.type) {
+                filteredCats.append(cat)
             }
         }
+        
         
         //get max length
         var maxCount = 0

@@ -9,12 +9,15 @@
 import Foundation
 
 struct StreamCategoryPreference {
-    private var prefs = [StreamCategoryType.Gaming,
+    
+    public static let all = [StreamCategoryType.Gaming,
                          StreamCategoryType.Entertainment,
                          StreamCategoryType.People,
                          StreamCategoryType.News,
                          StreamCategoryType.Sports,
                          StreamCategoryType.Misc]
+    
+    private var prefs = StreamCategoryPreference.all
     
     func hasType(type:StreamCategoryType) -> Bool {
         return prefs.contains(type)
