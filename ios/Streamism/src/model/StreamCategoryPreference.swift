@@ -10,14 +10,18 @@ import Foundation
 
 struct StreamCategoryPreference {
     
-    public static let all = [StreamCategoryType.Gaming,
-                         StreamCategoryType.Entertainment,
-                         StreamCategoryType.People,
-                         StreamCategoryType.News,
-                         StreamCategoryType.Sports,
-                         StreamCategoryType.Misc]
+    private var prefs = [StreamCategoryType]()
     
-    private var prefs = StreamCategoryPreference.all
+    public static func all() -> StreamCategoryPreference {
+        var prefs = StreamCategoryPreference()
+        prefs.setTypes(types: [StreamCategoryType.Gaming,
+                               StreamCategoryType.Entertainment,
+                               StreamCategoryType.People,
+                               StreamCategoryType.News,
+                               StreamCategoryType.Sports,
+                               StreamCategoryType.Misc])
+        return prefs
+    }
     
     func hasType(type:StreamCategoryType) -> Bool {
         return prefs.contains(type)

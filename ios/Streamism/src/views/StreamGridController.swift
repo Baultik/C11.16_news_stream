@@ -11,6 +11,7 @@ import UIKit
 class StreamGridController: UICollectionViewController {
     
     let streamFlowLayout = StreamFlowLayout(columns: 2)
+    let dbs = StreamDatabase()
 
     override func viewDidLoad() {
         super.viewDidLoad()

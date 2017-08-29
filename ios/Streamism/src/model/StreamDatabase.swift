@@ -14,7 +14,7 @@ class StreamDatabase {
     private var ref: DatabaseReference!
     private var handle:UInt = 0
     private var masterList = [StreamCategory]()
-    private(set) var streamList:[Stream]?
+    private var streamList:[Stream]?
     
     init() {
         ref = Database.database().reference(withPath: "-KbHuqtKNuu96svHRgjz")
@@ -29,39 +29,42 @@ class StreamDatabase {
                 let streamCat = StreamCategory(type:StreamCategoryType(rawValue: cat!)!,data:streams!)
                 self.masterList.append(streamCat)
             }
-            self.streamList = self.shuffle(list: self.masterList, preference: StreamCategoryPreference())
+            self.streamList = self.shuffle(list: self.masterList)
         })
     }
     
-    private func shuffle(list:[StreamCategory], preference:StreamCategoryPreference) -> [Stream] {
+    func compare(current:[Stream],preference:StreamCategoryPreference) -> [IndexPath] {
+        var indexes = [IndexPath]()
+        var filtered = filter(preference: preference)
+        
+        
+        return indexes
+    }
+    
+    func filter(preference:StreamCategoryPreference) -> [Stream] {
+        return (streamList?.filter({ (stream) -> Bool in
+            return preference.hasType(type: StreamCategoryType(rawValue: stream.category)!)
+        }))!
+    }
+    
+    private func shuffle(list:[StreamCategory]) -> [Stream] {
         var filteredList = [Stream]()
-        var filteredCats = [StreamCategory]()
-        
-        //filter out cats if necessary - assumes one of each type in the array
-        
-        for cat in list {
-            if preference.hasType(type: cat.type) {
-                filteredCats.append(cat)
-            }
-        }
-        
         
         //get max length
         var maxCount = 0
-        for cat in filteredCats {
+        for cat in list {
             if cat.streams.count > maxCount {
                 maxCount = cat.streams.count
             }
         }
-        
         
         for j in 0..<maxCount {
             var sub = [Stream]();
             
             //Sort 1 of each cat at a time - better way?
             //go through each category - make temp array holding count element of each
-            for k in 0..<filteredCats.count {
-                let category = filteredCats[k];
+            for k in 0..<list.count {
+                let category = list[k];
                 if category.streams.count > j  {
                     sub.append(category.streams[j])
                 }
