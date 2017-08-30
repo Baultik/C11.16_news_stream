@@ -9,12 +9,16 @@
 import Foundation
 import FirebaseDatabase
 
+protocol StreamDatabaseDelegate {
+    func updatedStreams(streams:[Stream])
+}
 
 class StreamDatabase {
     private var ref: DatabaseReference!
     private var handle:UInt = 0
     private var masterList = [StreamCategory]()
     private var streamList:[Stream]?
+    var delegate:StreamDatabaseDelegate?
     
     init() {
         ref = Database.database().reference(withPath: "-KbHuqtKNuu96svHRgjz")
@@ -30,15 +34,10 @@ class StreamDatabase {
                 self.masterList.append(streamCat)
             }
             self.streamList = self.shuffle(list: self.masterList)
+            if let delegate = self.delegate {
+                delegate.updatedStreams(streams: self.streamList!)
+            }
         })
-    }
-    
-    func compare(current:[Stream],preference:StreamCategoryPreference) -> [IndexPath] {
-        var indexes = [IndexPath]()
-        var filtered = filter(preference: preference)
-        
-        
-        return indexes
     }
     
     func filter(preference:StreamCategoryPreference) -> [Stream] {

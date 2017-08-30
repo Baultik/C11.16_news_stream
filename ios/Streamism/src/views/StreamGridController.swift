@@ -8,14 +8,18 @@
 
 import UIKit
 
-class StreamGridController: UICollectionViewController {
+class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
     
-    let streamFlowLayout = StreamFlowLayout(columns: 2)
-    let dbs = StreamDatabase()
+    private let streamFlowLayout = StreamFlowLayout(columns: 2)
+    private let dbs = StreamDatabase()
+    private var collectionStreams:[Stream]?
+    private var pendingStreams:[Stream]?
+    private var preference:StreamCategoryPreference = StreamCategoryPreference.all()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        dbs.delegate = self
+        
         // Do any additional setup after loading the view.
         streamFlowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         streamFlowLayout.minimumInteritemSpacing = 0
@@ -28,6 +32,37 @@ class StreamGridController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func updatedStreams(streams:[Stream]) {
+        
+    }
+    
+    func compare(current:[Stream],filtered:[Stream]) -> [IndexPath] {
+        var indexes = [IndexPath]()
+        var offset = 0
+        var i = 0
+        
+        while i < min(current.count,filtered.count) {
+            if current.count < filtered.count {
+                if current[i].streamID != filtered[i+offset].streamID {
+                    indexes.append(IndexPath(row: i+offset, section: 0))
+                    offset += 1
+                    continue
+                }
+            } else if current.count > filtered.count {
+                if current[i+offset].streamID != filtered[i].streamID {
+                    indexes.append(IndexPath(row: i+offset, section: 0))
+                    offset += 1
+                    continue
+                }
+            }
+            i += 1
+        }
+        
+        
+        return indexes
+    }
+    
+    // MARK: - Collection
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 2
     }
