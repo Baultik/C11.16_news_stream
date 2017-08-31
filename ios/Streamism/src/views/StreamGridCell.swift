@@ -14,6 +14,24 @@ class StreamGridCell: UICollectionViewCell {
     @IBOutlet weak var streamCellName: UILabel!
     
     private var session:URLSession?
+    
+    var title:String? {
+        get {
+            return streamCellTitle.text
+        }
+        set {
+            streamCellTitle.text = newValue
+        }
+    }
+    
+    var name:String? {
+        get {
+            return streamCellName.text
+        }
+        set {
+            streamCellName.text = newValue
+        }
+    }
  
     func loadImage(from url:String) {
         cancelImageLoad()

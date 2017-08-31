@@ -21,21 +21,29 @@ struct StreamCategory {
     let type:StreamCategoryType
     let streams: [Stream]
     
-    init(type:StreamCategoryType, data:[[String:String]]) {
+    init(type:StreamCategoryType, data:[[String:AnyObject]]) {
         self.type = type
         var streams = [Stream]()
         for streamData in data {
-            let stream = Stream(category: streamData["category"]!,
-                                channel: streamData["channel"]!,
-                                embedChat: URL(string:streamData["embedChat"]!)!,
-                                embedVideo: URL(string:streamData["embedVideo"]!)!,
-                                streamID: streamData["id"]!,
-                                link: URL(string:streamData["link"]!)!,
-                                source: streamData["source"]!,
-                                startTime: DateFormatter().date(from: streamData["startTime"]!)!,
-                                thumbnail: URL(string:streamData["thumbnail"]!)!,
-                                title: streamData["title"]!,
-                                viewers: Int(streamData["viewers"]!)!)
+            var stream = Stream(category: streamData["category"] as! String,
+                                channel: streamData["channel"] as! String,
+                                embedChat: streamData["embedChat"] as! String,
+                                embedVideo: streamData["embedVideo"] as! String,
+                                streamID: streamData["id"] as! String,
+                                source: streamData["source"] as! String,
+                                thumbnail: streamData["thumbnail"] as! String,
+                                title: streamData["title"] as! String)
+            
+            stream.link = streamData["link"] as? String
+            
+            if let time = streamData["startTime"] as? String{
+                stream.startTime = DateFormatter().date(from: time)
+            }
+            
+            if let viewers = streamData["viewers"] as? Int {
+                stream.viewers = viewers
+            }
+            
             streams.append(stream)
         }
                 

@@ -22,14 +22,17 @@ class StreamDatabase {
     
     init() {
         ref = Database.database().reference(withPath: "-KbHuqtKNuu96svHRgjz")
+    }
+    
+    func startObserver() {
         handle = ref.observe(.value, with: { (snapshot) in
             //print("Streamism data - \(String(describing: snapshot.value))")
-
+            
             let value = snapshot.value as? [String : AnyObject] ?? [:]
             let cats = value["streams"] as? [[String: AnyObject]] ?? [[:]]
             for category in cats {
                 let cat = category["id"] as? String
-                let streams = category["streams"] as? [[String:String]]
+                let streams = category["streams"] as? [[String:AnyObject]]
                 let streamCat = StreamCategory(type:StreamCategoryType(rawValue: cat!)!,data:streams!)
                 self.masterList.append(streamCat)
             }
@@ -38,6 +41,10 @@ class StreamDatabase {
                 delegate.updatedStreams(streams: self.streamList!)
             }
         })
+    }
+    
+    func stopObserver() {
+        ref.removeObserver(withHandle: handle)
     }
     
     func filter(preference:StreamCategoryPreference) -> [Stream] {

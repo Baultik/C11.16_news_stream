@@ -11,13 +11,24 @@ import Foundation
 struct Stream {
     var category:String
     var channel:String
-    var embedChat:URL
-    var embedVideo:URL
+    var embedChat:String
+    var embedVideo:String
     var streamID:String
-    var link:URL
+    var link:String?
     var source:String
-    var startTime:Date
-    var thumbnail:URL
+    var startTime:Date?
+    var thumbnail:String
     var title:String
-    var viewers:Int
+    var viewers:Int?
+    
+    init(category:String,channel:String,embedChat:String,embedVideo:String,streamID:String,source:String,thumbnail:String,title:String) {
+        self.category = category
+        self.channel = channel
+        self.embedChat = embedChat
+        self.embedVideo = embedVideo
+        self.streamID = streamID
+        self.source = source
+        self.thumbnail = thumbnail
+        self.title = title
+    }
 }
