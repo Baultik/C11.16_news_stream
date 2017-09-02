@@ -10,82 +10,50 @@ import Foundation
 import FirebaseDatabase
 
 protocol StreamDatabaseDelegate {
-    func updatedStreams(streams:[Stream])
+    func update(streamData:StreamList?)
 }
 
 class StreamDatabase {
     private var ref: DatabaseReference!
     private var handle:UInt = 0
-    private var masterList = [StreamCategory]()
-    private var streamList:[Stream]?
+    private(set) var rawData:[String:AnyObject]?
+    private(set) var categoryData:StreamCategoryList?
+    private(set) var streamData:StreamList?
     var delegate:StreamDatabaseDelegate?
     
     init() {
         ref = Database.database().reference(withPath: "-KbHuqtKNuu96svHRgjz")
     }
     
-    func startObserver() {
+    func startUpdates() {
+        if (handle > 0) {return}
         handle = ref.observe(.value, with: { (snapshot) in
             //print("Streamism data - \(String(describing: snapshot.value))")
             
-            let value = snapshot.value as? [String : AnyObject] ?? [:]
-            let cats = value["streams"] as? [[String: AnyObject]] ?? [[:]]
-            for category in cats {
-                let cat = category["id"] as? String
-                let streams = category["streams"] as? [[String:AnyObject]]
-                let streamCat = StreamCategory(type:StreamCategoryType(rawValue: cat!)!,data:streams!)
-                self.masterList.append(streamCat)
-            }
-            self.streamList = self.shuffle(list: self.masterList)
+            self.rawData = snapshot.value as? [String : AnyObject] ?? [:]
+            let cats = self.rawData?["streams"] as? [[String: AnyObject]] ?? [[:]]
+            self.categoryData = self.parse(rawData: cats)
+            self.streamData = self.categoryData?.streamList
             if let delegate = self.delegate {
-                delegate.updatedStreams(streams: self.streamList!)
+                delegate.update(streamData: self.streamData)
             }
         })
     }
     
-    func stopObserver() {
+    func stopUpdates() {
         ref.removeObserver(withHandle: handle)
     }
     
-    func filter(preference:StreamCategoryPreference) -> [Stream] {
-        return (streamList?.filter({ (stream) -> Bool in
-            return preference.hasType(type: StreamCategoryType(rawValue: stream.category)!)
-        }))!
-    }
-    
-    private func shuffle(list:[StreamCategory]) -> [Stream] {
-        var filteredList = [Stream]()
+    private func parse(rawData:[[String: AnyObject]]) -> StreamCategoryList {
+        var cats = [StreamCategory]()
         
-        //get max length
-        var maxCount = 0
-        for cat in list {
-            if cat.streams.count > maxCount {
-                maxCount = cat.streams.count
-            }
+        for category in rawData {
+            let cat = category["id"] as? String
+            let streams = category["streams"] as? [[String:AnyObject]]
+            let streamCat = StreamCategory(type:StreamCategoryType(rawValue: cat!)!,data:streams!)
+            cats.append(streamCat)
         }
         
-        for j in 0..<maxCount {
-            var sub = [Stream]();
-            
-            //Sort 1 of each cat at a time - better way?
-            //go through each category - make temp array holding count element of each
-            for k in 0..<list.count {
-                let category = list[k];
-                if category.streams.count > j  {
-                    sub.append(category.streams[j])
-                }
-            }
-            
-            //random sort temp array
-            //add array elements to final list
-            if (sub.count > 0) {
-                sub.sort(by: { (stream1, stream2) -> Bool in
-                  return arc4random_uniform(2) == 0
-                })
-                filteredList.append(contentsOf: sub)
-            }
-        }
-
-        return filteredList
+        return StreamCategoryList(categoryData: cats)
     }
 }
