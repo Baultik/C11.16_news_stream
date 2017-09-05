@@ -104,6 +104,7 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Stream", for: indexPath) as! StreamGridCell
         if let collect = collectionStreamList {
             let stream = collect[indexPath.row]
@@ -111,6 +112,7 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
             cell.name = stream.channel
         }
         //cell.loadImage(from: "")
+
         return cell
     }
     
