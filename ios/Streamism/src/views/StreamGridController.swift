@@ -110,8 +110,8 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
             let stream = collect[indexPath.row]
             cell.title = stream.title
             cell.name = stream.channel
+            cell.loadImage(from: stream.thumbnail)
         }
-        //cell.loadImage(from: "")
 
         return cell
     }

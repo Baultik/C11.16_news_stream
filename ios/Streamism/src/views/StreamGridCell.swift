@@ -37,13 +37,15 @@ class StreamGridCell: UICollectionViewCell {
         cancelImageLoad()
         session = URLSession(configuration: URLSessionConfiguration.ephemeral)
         if let url = URL(string: url) {
-            session?.dataTask(with: url) { (data, response, error) in
+            (session?.dataTask(with: url) { (data, response, error) in
                 if let error = error {
                     print("Error \(error)")
                 } else if let data = data {
-                    self.streamCellImageView.image = UIImage(data: data)
+                    DispatchQueue.main.async {
+                        self.streamCellImageView.image = UIImage(data: data)
+                    }
                 }
-            }
+            })?.resume()
         }
     }
     

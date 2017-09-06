@@ -114,7 +114,6 @@
                                         </label>
                                     </subviews>
                                 </view>
-                                <color key="backgroundColor" red="1" green="0.060870379671772223" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="TqE-aP-N4S" firstAttribute="top" secondItem="jsj-e4-Cvs" secondAttribute="top" constant="10" id="8UR-d5-xxH"/>
                                     <constraint firstAttribute="trailing" secondItem="Udh-9q-4HG" secondAttribute="trailing" id="Gt9-kx-TSR"/>
