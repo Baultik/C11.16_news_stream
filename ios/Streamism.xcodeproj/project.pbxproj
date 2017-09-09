@@ -11,6 +11,7 @@
 		5328C24E1C932ECD0DE3C341 /* Pods_StreamismUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BE6E0F10FBD02F6C5CDE48 /* Pods_StreamismUITests.framework */; };
 		7701AF6F1F5A1FBE006D3804 /* StreamList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701AF6E1F5A1FBE006D3804 /* StreamList.swift */; };
 		7701AF711F5A266D006D3804 /* StreamCategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701AF701F5A266D006D3804 /* StreamCategoryList.swift */; };
+		7701AF731F6361D6006D3804 /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701AF721F6361D6006D3804 /* PreferenceViewController.swift */; };
 		771C355D1F4B8FEE00BC3764 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 771C355C1F4B8FEE00BC3764 /* GoogleService-Info.plist */; };
 		771C355F1F4B91FA00BC3764 /* StreamDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771C355E1F4B91FA00BC3764 /* StreamDatabase.swift */; };
 		771C35611F4BADFD00BC3764 /* StreamCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771C35601F4BADFD00BC3764 /* StreamCategory.swift */; };
@@ -54,6 +55,7 @@
 		695A36D1DDB7C0E66318CF0C /* Pods-StreamismUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreamismUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreamismUITests/Pods-StreamismUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7701AF6E1F5A1FBE006D3804 /* StreamList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamList.swift; path = src/model/StreamList.swift; sourceTree = "<group>"; };
 		7701AF701F5A266D006D3804 /* StreamCategoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamCategoryList.swift; path = src/model/StreamCategoryList.swift; sourceTree = "<group>"; };
+		7701AF721F6361D6006D3804 /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreferenceViewController.swift; path = src/views/PreferenceViewController.swift; sourceTree = "<group>"; };
 		771C355C1F4B8FEE00BC3764 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		771C355E1F4B91FA00BC3764 /* StreamDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamDatabase.swift; path = src/model/StreamDatabase.swift; sourceTree = "<group>"; };
 		771C35601F4BADFD00BC3764 /* StreamCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamCategory.swift; path = src/model/StreamCategory.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				77A50A271F43BCF300A3D5BA /* StreamFlowLayout.swift */,
 				77A50A291F43C0A800A3D5BA /* StreamGridController.swift */,
 				7760EB961F45016D008AD53D /* StreamGridCell.swift */,
+				7701AF721F6361D6006D3804 /* PreferenceViewController.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				77A50A1F1F439C1B00A3D5BA /* ViewController.swift in Sources */,
 				7701AF6F1F5A1FBE006D3804 /* StreamList.swift in Sources */,
 				771C35611F4BADFD00BC3764 /* StreamCategory.swift in Sources */,
+				7701AF731F6361D6006D3804 /* PreferenceViewController.swift in Sources */,
 				7701AF711F5A266D006D3804 /* StreamCategoryList.swift in Sources */,
 				771C35631F4E70D900BC3764 /* StreamCategoryPreference.swift in Sources */,
 				77A50A1D1F439C0D00A3D5BA /* AppDelegate.swift in Sources */,
