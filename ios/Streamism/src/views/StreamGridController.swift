@@ -9,7 +9,7 @@
 import UIKit
 
 class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
-    
+
     private let streamFlowLayout = StreamFlowLayout(columns: 2)
     private var dbs:StreamDatabase?
     private var collectionStreamList:StreamList?
@@ -28,6 +28,8 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
         streamFlowLayout.minimumInteritemSpacing = 0
         streamFlowLayout.minimumLineSpacing = 0
         collectionView?.collectionViewLayout = streamFlowLayout
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,6 +71,10 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
         }
     }
     
+    public func update(_ preference:StreamCategoryPreference) {
+        updateStreamCollection(streamData: collectionStreamList?.filter(by: preference))
+    }
+    
     func compare(oldStreamData:StreamList,newStreamData:StreamList) -> [IndexPath] {
         var indexes = [IndexPath]()
         var offset = 0
@@ -94,7 +100,7 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
         
         return indexes
     }
-    
+
     // MARK: - Collection
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let collect = collectionStreamList {
