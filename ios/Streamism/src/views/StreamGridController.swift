@@ -12,8 +12,9 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
 
     private let streamFlowLayout = StreamFlowLayout(columns: 2)
     private var dbs:StreamDatabase?
-    private var collectionStreamList:StreamList?
-    private var pendingStreamList:StreamList?
+    private var collectionStreamList:StreamList?//currently displayed - filtered
+    private var pendingStreamList:StreamList?//new stream data - not filtered
+    private var fullStreamList:StreamList?//full stream data currently shown - not filtered
     
     //TODO: figure out best way to get preference data
     private var preference:StreamCategoryPreference = StreamCategoryPreference.all()
@@ -28,8 +29,6 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
         streamFlowLayout.minimumInteritemSpacing = 0
         streamFlowLayout.minimumLineSpacing = 0
         collectionView?.collectionViewLayout = streamFlowLayout
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +36,7 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    private func updateStreamCollection(streamData:StreamList?) {
+    private func updateStreamGrid(streamData:StreamList?) {
         if let pending = streamData {
             guard let collect = collectionStreamList else {
                 collectionStreamList = streamData
@@ -57,25 +56,26 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
                 }
             }, completion: { (done) in
                 //done changing items
-                //renable changing categories
+                //re-enable changing categories
             })
         }
     }
     
-    func update(streamData:StreamList?) {
-        pendingStreamList = streamData?.filter(by: preference)
-        if collectionStreamList == nil {
-            updateStreamCollection(streamData:pendingStreamList)
-        } else {
-            //show notification that new streams are available
+    private func updateGrid() {
+        //update whats displayed with filtered version of full data
+        let data = fullStreamList?.filter(by: preference)
+        updateStreamGrid(streamData:data)
+    }
+    
+    private func updateWithPendingData() {
+        if let pending = pendingStreamList {
+            fullStreamList = pending
+            pendingStreamList = nil
+            updateGrid()
         }
     }
     
-    public func update(_ preference:StreamCategoryPreference) {
-        updateStreamCollection(streamData: collectionStreamList?.filter(by: preference))
-    }
-    
-    func compare(oldStreamData:StreamList,newStreamData:StreamList) -> [IndexPath] {
+    private func compare(oldStreamData:StreamList,newStreamData:StreamList) -> [IndexPath] {
         var indexes = [IndexPath]()
         var offset = 0
         var i = 0
@@ -99,6 +99,21 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
         
         
         return indexes
+    }
+    
+    func streamDataUpdate(_ streamData:StreamList?) {
+        pendingStreamList = streamData
+        if collectionStreamList == nil {
+            //if no data currenly being shown update immedietely
+            updateWithPendingData()
+        } else {
+            //show notification that new streams are available
+        }
+    }
+    
+    func preferenceUpdate(_ preference:StreamCategoryPreference) {
+        self.preference = preference
+        updateGrid()
     }
 
     // MARK: - Collection

@@ -10,7 +10,7 @@ import Foundation
 import FirebaseDatabase
 
 protocol StreamDatabaseDelegate {
-    func update(streamData:StreamList?)
+    func streamDataUpdate(_ streamData:StreamList?)
     //func update(streamData:[[String:AnyObject]])
 }
 
@@ -30,18 +30,18 @@ class StreamDatabase {
         if (handle > 0) {return}
         handle = ref.observe(.value, with: { (snapshot) in
             //print("Streamism data - \(String(describing: snapshot.value))")
-            let methodStart = Date()
+//            let methodStart = Date()
             self.rawData = snapshot.value as? [String : AnyObject] ?? [:]
             let cats = self.rawData?["streams"] as? [[String: AnyObject]] ?? [[:]]
             self.categoryData = self.parse(rawData: cats)
             self.streamData = self.categoryData?.streamList
             //let streams:[[String:AnyObject]] = self.parse(rawData: cats)
             if let delegate = self.delegate {
-                delegate.update(streamData: self.streamData)
+                delegate.streamDataUpdate(self.streamData)
             }
-            let methodEnd = Date()
-            let time = methodEnd.timeIntervalSince(methodStart)
-            print("time: \(time)")
+//            let methodEnd = Date()
+//            let time = methodEnd.timeIntervalSince(methodStart)
+//            print("time: \(time)")
         })
     }
     

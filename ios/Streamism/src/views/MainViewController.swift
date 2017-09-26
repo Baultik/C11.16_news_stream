@@ -31,7 +31,7 @@ class MainViewController: UIViewController,PreferenceDelegate {
     }
     
     func preferenceChanged(_ preference:StreamCategoryPreference) {
-        streamGridViewController?.update(preference)
+        streamGridViewController?.preferenceUpdate(preference)
     }
 }
 

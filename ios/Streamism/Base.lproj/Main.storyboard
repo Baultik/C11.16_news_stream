@@ -418,6 +418,14 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="264"/>
+                    <connections>
+                        <outlet property="switchEntertainment" destination="rSS-JU-xY0" id="1U4-VZ-4Ir"/>
+                        <outlet property="switchGaming" destination="NJV-xU-LsI" id="KrV-wa-bdm"/>
+                        <outlet property="switchMisc" destination="rNt-9x-uAv" id="I4V-FK-Foh"/>
+                        <outlet property="switchNews" destination="fPF-d8-z0s" id="BJg-uz-Mj3"/>
+                        <outlet property="switchPeople" destination="41V-hJ-7tA" id="HdN-28-dII"/>
+                        <outlet property="switchSports" destination="y0l-6r-OeV" id="t5c-iu-J9p"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wle-MY-Eup" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

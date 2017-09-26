@@ -14,7 +14,7 @@ struct StreamCategoryPreference {
     
     public static func all() -> StreamCategoryPreference {
         var prefs = StreamCategoryPreference()
-        prefs.setTypes(types: [StreamCategoryType.Gaming,
+        prefs.setTypes([StreamCategoryType.Gaming,
                                StreamCategoryType.Entertainment,
                                StreamCategoryType.People,
                                StreamCategoryType.News,
@@ -23,26 +23,26 @@ struct StreamCategoryPreference {
         return prefs
     }
     
-    func hasType(type:StreamCategoryType) -> Bool {
+    func hasType(_ type:StreamCategoryType) -> Bool {
         return prefs.contains(type)
     }
     
-    mutating func addType(type:StreamCategoryType) {
+    mutating func addType(_ type:StreamCategoryType) {
         if !prefs.contains(type) {
             prefs.append(type)
         }
     }
     
-    mutating func removeType(type:StreamCategoryType) {
+    mutating func removeType(_ type:StreamCategoryType) {
         if prefs.contains(type), let i = prefs.index(of: type) {
             prefs.remove(at: i)
         }
     }
     
-    mutating func setTypes(types:[StreamCategoryType]) {
+    mutating func setTypes(_ types:[StreamCategoryType]) {
         prefs.removeAll()
         for type in types {
-            addType(type: type)
+            addType(type)
         }
     }
 }

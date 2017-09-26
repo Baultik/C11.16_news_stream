@@ -24,7 +24,9 @@ class StreamList {
     
     func filter(by preference:StreamCategoryPreference) -> StreamList {
         let data =  streamData.filter({ (stream) -> Bool in
-            return preference.hasType(type: StreamCategoryType(rawValue: stream.category)!)
+            let hasType = preference.hasType(StreamCategoryType(rawValue: stream.category)!)
+            if hasType {print("type: \(stream.category)")}
+            return hasType
         })
         
         return StreamList(streamData: data)
