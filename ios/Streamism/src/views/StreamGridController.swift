@@ -29,6 +29,8 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
         streamFlowLayout.minimumInteritemSpacing = 0
         streamFlowLayout.minimumLineSpacing = 0
         collectionView?.collectionViewLayout = streamFlowLayout
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,10 +69,12 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
         updateStreamGrid(streamData:data)
     }
     
-    private func updateWithPendingData() {
+    @objc private func updateWithPendingData() {
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
         if let pending = pendingStreamList {
             fullStreamList = pending
             pendingStreamList = nil
+            collectionStreamList = nil
             updateGrid()
         }
     }
@@ -108,6 +112,8 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
             updateWithPendingData()
         } else {
             //show notification that new streams are available
+            let up = UIBarButtonItem(title: "!", style: .plain, target: self, action: #selector(StreamGridController.updateWithPendingData))
+            navigationController?.navigationBar.topItem?.rightBarButtonItem = up
         }
     }
     
