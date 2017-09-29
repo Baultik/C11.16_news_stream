@@ -12,17 +12,24 @@ protocol PreferenceDelegate {
     func preferenceChanged(_ preference:StreamCategoryPreference)
 }
 
-class PreferenceViewController: UITableViewController {
+class PreferenceViewController: UIViewController {
 
     var delegate:PreferenceDelegate?
     var preference:StreamCategoryPreference = StreamCategoryPreference.all()
     
-    @IBOutlet weak var switchGaming: UISwitch!
-    @IBOutlet weak var switchEntertainment: UISwitch!
-    @IBOutlet weak var switchPeople: UISwitch!
-    @IBOutlet weak var switchNews: UISwitch!
-    @IBOutlet weak var switchSports: UISwitch!
-    @IBOutlet weak var switchMisc: UISwitch!
+    @IBOutlet weak var buttonGaming: UIButton!
+    @IBOutlet weak var buttonEntertainment: UIButton!
+    @IBOutlet weak var buttonPeople: UIButton!
+    @IBOutlet weak var buttonNews: UIButton!
+    @IBOutlet weak var buttonSports: UIButton!
+    @IBOutlet weak var buttonMisc: UIButton!
+    
+    let gamingColor         = UIColor(red: 234, green: 93, blue: 83, alpha: 1)
+    let entertainmentColor  = UIColor(red: 14, green: 87, blue: 195, alpha: 1)
+    let peopleColor         = UIColor(red: 40, green: 180, blue: 197, alpha: 1)
+    let newsColor           = UIColor(red: 21, green: 128, blue: 101, alpha: 1)
+    let sportsColor         = UIColor(red: 126, green: 87, blue: 143, alpha: 1)
+    let miscColor           = UIColor(red: 208, green: 146, blue: 55, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +39,7 @@ class PreferenceViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        updateSwitches()
+        updateUIState()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,34 +47,35 @@ class PreferenceViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func updateSwitches() {
-        switchGaming.isOn = preference.hasType(.Gaming)
-        switchEntertainment.isOn = preference.hasType(.Entertainment)
-        switchPeople.isOn = preference.hasType(.People)
-        switchNews.isOn = preference.hasType(.News)
-        switchSports.isOn = preference.hasType(.Sports)
-        switchMisc.isOn = preference.hasType(.Misc)
+    private func updateUIState() {
+        buttonGaming.isSelected = preference.hasType(.Gaming)
+        buttonEntertainment.isSelected = preference.hasType(.Entertainment)
+        buttonPeople.isSelected = preference.hasType(.People)
+        buttonNews.isSelected = preference.hasType(.News)
+        buttonSports.isSelected = preference.hasType(.Sports)
+        buttonMisc.isSelected = preference.hasType(.Misc)
     }
     
-    @IBAction func preferenceChanged(_ sender: UISwitch) {
+    @IBAction func preferenceChanged(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
         switch sender {
-        case switchGaming:
-            if sender.isOn {preference.addType(.Gaming)} else {preference.removeType(.Gaming)};
+        case buttonGaming:
+            if sender.isSelected {preference.addType(.Gaming)} else {preference.removeType(.Gaming)};
             break
-        case switchEntertainment:
-            if sender.isOn {preference.addType(.Entertainment)} else {preference.removeType(.Entertainment)};
+        case buttonEntertainment:
+            if sender.isSelected {preference.addType(.Entertainment)} else {preference.removeType(.Entertainment)};
             break
-        case switchPeople:
-            if sender.isOn {preference.addType(.People)} else {preference.removeType(.People)};
+        case buttonPeople:
+            if sender.isSelected {preference.addType(.People)} else {preference.removeType(.People)};
             break
-        case switchNews:
-            if sender.isOn {preference.addType(.News)} else {preference.removeType(.News)};
+        case buttonNews:
+            if sender.isSelected {preference.addType(.News)} else {preference.removeType(.News)};
             break
-        case switchSports:
-            if sender.isOn {preference.addType(.Sports)} else {preference.removeType(.Sports)};
+        case buttonSports:
+            if sender.isSelected {preference.addType(.Sports)} else {preference.removeType(.Sports)};
             break
-        case switchMisc:
-            if sender.isOn {preference.addType(.Misc)} else {preference.removeType(.Misc)};
+        case buttonMisc:
+            if sender.isSelected {preference.addType(.Misc)} else {preference.removeType(.Misc)};
             break
         default:
             break
