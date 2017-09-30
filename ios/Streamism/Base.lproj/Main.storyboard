@@ -171,6 +171,37 @@
             </objects>
             <point key="canvasLocation" x="-42.399999999999999" y="-545.57721139430294"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="ynQ-rk-tdW">
+            <objects>
+                <viewController id="byl-VU-aJC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jau-vc-C9J"/>
+                        <viewControllerLayoutGuide type="bottom" id="FOp-jq-PGx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gMV-Kr-8AL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AiW-EC-Mgf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Yo" image="GamingIcon" landscapeImage="GamingIcon" selectedImage="GamingIcon" id="6aN-3r-MF5"/>
+                                    <tabBarItem systemItem="more" id="96S-Wy-Pa1"/>
+                                </items>
+                                <color key="barTintColor" red="0.39835223269999998" green="1" blue="0.58515433670000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="selectedImageTintColor" red="1" green="0.12695206079999999" blue="0.49950969439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tabBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xk5-pV-3iT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="751" y="-411"/>
+        </scene>
         <!--Preference View Controller-->
         <scene sceneID="d21-7T-DhQ">
             <objects>
@@ -186,17 +217,29 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="I6N-JM-PQd">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAz-bL-Hnd" customClass="PreferenceToggle" customModule="Streamism" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="59" height="64"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="Gaming"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="GamingIcon"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNd-Qg-dUZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="69" height="64"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <rect key="frame" x="58.999999999999993" y="0.0" width="59.333333333333321" height="64"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                                        <state key="normal" image="GamingIcon"/>
+                                        <state key="normal" image="GamingIcon">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="preferenceChanged:" destination="Hqe-GL-wYa" eventType="touchUpInside" id="Tcr-w7-69A"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mm-WZ-JEq">
-                                        <rect key="frame" x="69" y="0.0" width="69" height="64"/>
+                                        <rect key="frame" x="118.33333333333334" y="0.0" width="59.000000000000028" height="64"/>
                                         <color key="backgroundColor" red="0.24563902670000001" green="0.43658631910000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <state key="normal" title="Entertainment"/>
@@ -205,7 +248,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kww-rm-AOC">
-                                        <rect key="frame" x="138" y="0.0" width="69" height="64"/>
+                                        <rect key="frame" x="177.33333333333334" y="0.0" width="59.333333333333314" height="64"/>
                                         <color key="backgroundColor" red="0.34406086889999998" green="0.98880882270000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="People"/>
                                         <connections>
@@ -213,7 +256,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thm-Vb-Xfg">
-                                        <rect key="frame" x="207" y="0.0" width="69" height="64"/>
+                                        <rect key="frame" x="236.66666666666669" y="0.0" width="59.000000000000057" height="64"/>
                                         <color key="backgroundColor" red="0.39835223269999998" green="1" blue="0.58515433670000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="News"/>
                                         <connections>
@@ -221,7 +264,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHo-Dl-szX">
-                                        <rect key="frame" x="276" y="0.0" width="69" height="64"/>
+                                        <rect key="frame" x="295.66666666666674" y="0.0" width="59.333333333333314" height="64"/>
                                         <color key="backgroundColor" red="0.74659283710000002" green="0.50659895229999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Sports"/>
                                         <connections>
@@ -229,7 +272,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbY-0O-fT8">
-                                        <rect key="frame" x="345" y="0.0" width="69" height="64"/>
+                                        <rect key="frame" x="355" y="0.0" width="59" height="64"/>
                                         <color key="backgroundColor" red="1" green="0.88621686509999997" blue="0.44302668020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Misc"/>
                                         <connections>

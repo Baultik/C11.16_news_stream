@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Firebase
 @testable import Streamism
 
 class StreamismTests: XCTestCase {

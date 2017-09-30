@@ -16,6 +16,7 @@
 		771C355F1F4B91FA00BC3764 /* StreamDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771C355E1F4B91FA00BC3764 /* StreamDatabase.swift */; };
 		771C35611F4BADFD00BC3764 /* StreamCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771C35601F4BADFD00BC3764 /* StreamCategory.swift */; };
 		771C35631F4E70D900BC3764 /* StreamCategoryPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771C35621F4E70D900BC3764 /* StreamCategoryPreference.swift */; };
+		772482B71F7EF6960099E715 /* PreferenceToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772482B61F7EF6960099E715 /* PreferenceToggle.swift */; };
 		7760EB971F45016D008AD53D /* StreamGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760EB961F45016D008AD53D /* StreamGridCell.swift */; };
 		7793A5901F3BD3C80085085B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7793A58E1F3BD3C80085085B /* Main.storyboard */; };
 		7793A5921F3BD3C80085085B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7793A5911F3BD3C80085085B /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		771C355E1F4B91FA00BC3764 /* StreamDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamDatabase.swift; path = src/model/StreamDatabase.swift; sourceTree = "<group>"; };
 		771C35601F4BADFD00BC3764 /* StreamCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamCategory.swift; path = src/model/StreamCategory.swift; sourceTree = "<group>"; };
 		771C35621F4E70D900BC3764 /* StreamCategoryPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamCategoryPreference.swift; path = src/model/StreamCategoryPreference.swift; sourceTree = "<group>"; };
+		772482B61F7EF6960099E715 /* PreferenceToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreferenceToggle.swift; path = Streamism/src/views/controls/PreferenceToggle.swift; sourceTree = SOURCE_ROOT; };
 		7760EB961F45016D008AD53D /* StreamGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamGridCell.swift; path = src/views/StreamGridCell.swift; sourceTree = "<group>"; };
 		7793A5871F3BD3C80085085B /* Streamism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streamism.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7793A58F1F3BD3C80085085B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -122,6 +124,14 @@
 				695A36D1DDB7C0E66318CF0C /* Pods-StreamismUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		772482B51F7EF4790099E715 /* controls */ = {
+			isa = PBXGroup;
+			children = (
+				772482B61F7EF6960099E715 /* PreferenceToggle.swift */,
+			);
+			path = controls;
 			sourceTree = "<group>";
 		};
 		7793A57E1F3BD3C80085085B = {
@@ -190,6 +200,7 @@
 		77A50A1B1F439BB800A3D5BA /* views */ = {
 			isa = PBXGroup;
 			children = (
+				772482B51F7EF4790099E715 /* controls */,
 				77A50A1E1F439C1B00A3D5BA /* MainViewController.swift */,
 				77A50A271F43BCF300A3D5BA /* StreamFlowLayout.swift */,
 				77A50A291F43C0A800A3D5BA /* StreamGridController.swift */,
@@ -299,7 +310,7 @@
 				TargetAttributes = {
 					7793A5861F3BD3C80085085B = {
 						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					7793A59A1F3BD3C80085085B = {
@@ -535,6 +546,7 @@
 				77A50A2A1F43C0A800A3D5BA /* StreamGridController.swift in Sources */,
 				771C355F1F4B91FA00BC3764 /* StreamDatabase.swift in Sources */,
 				77A50A281F43BCF300A3D5BA /* StreamFlowLayout.swift in Sources */,
+				772482B71F7EF6960099E715 /* PreferenceToggle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,7 +707,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.baultik.Streamism;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -709,7 +722,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.baultik.Streamism;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -719,6 +733,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Firebase/Core/Sources\"",
+				);
 				INFOPLIST_FILE = StreamismTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.baultik.StreamismTests;
@@ -734,6 +759,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Firebase/Core/Sources\"",
+				);
 				INFOPLIST_FILE = StreamismTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.baultik.StreamismTests;
