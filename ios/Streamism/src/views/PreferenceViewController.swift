@@ -40,6 +40,8 @@ class PreferenceViewController: UIViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         updateUIState()
+        
+        buttonGaming.alignContent()
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,5 +92,30 @@ class PreferenceViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+    }
+}
+
+extension UIButton {
+    func alignContent(spacing:CGFloat = 10) {
+        if let titleLabel = titleLabel, let imageView = imageView {
+            if let title = titleLabel.text, let image = imageView.image {
+                let titleSize = NSString(string: title).size(withAttributes: [NSAttributedStringKey.font : titleLabel.font])
+                
+//                let buttonImageSize = image.size
+                
+                let topImageOffset = (frame.size.height - (titleSize.height + image.size.height + spacing)) / 2
+                let leftImageOffset = (frame.size.width - image.size.width) / 2
+                imageEdgeInsets = UIEdgeInsetsMake(topImageOffset,
+                                                   leftImageOffset,
+                                                   0,0)
+                
+                let titleTopOffset = topImageOffset + spacing + image.size.height
+                let leftTitleOffset = (frame.size.width - titleSize.width) / 2 - image.size.width
+                
+                titleEdgeInsets = UIEdgeInsetsMake(titleTopOffset,
+                                                   leftTitleOffset,
+                                                   0,0)
+            }
+        }
     }
 }
