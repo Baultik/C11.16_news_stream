@@ -41,7 +41,7 @@ class PreferenceViewController: UIViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         updateUIState()
         
-        buttonGaming.alignContent()
+        ///buttonGaming.alignContent()
     }
 
     override func didReceiveMemoryWarning() {

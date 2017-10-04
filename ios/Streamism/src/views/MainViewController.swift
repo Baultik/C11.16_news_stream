@@ -11,8 +11,8 @@ import UIKit
 class MainViewController: UIViewController,PreferenceDelegate {
     private var prefViewController:PreferenceViewController?
     private var streamGridViewController:StreamGridController?
-    private var prefTopConstraint:NSLayoutConstraint?
-    private var prefTopConstraintConstant:CGFloat = 0
+    private var prefConstraintConstant:CGFloat = 0
+    @IBOutlet weak var prefConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +29,7 @@ class MainViewController: UIViewController,PreferenceDelegate {
             prefViewController = segue.destination as? PreferenceViewController
             prefViewController?.delegate = self;
             
-            for c in self.view.constraints {
-                if c.identifier == "prefPosition" {
-                    prefTopConstraint = c
-                    prefTopConstraintConstant = c.constant
-                }
-            }
+            prefConstraintConstant = prefConstraint.constant
             
         } else if (segue.identifier == "streamGridEmbed") {
             streamGridViewController = segue.destination as? StreamGridController
@@ -45,7 +40,7 @@ class MainViewController: UIViewController,PreferenceDelegate {
         streamGridViewController?.preferenceUpdate(preference)
     }
     @IBAction func togglePreferenceView(_ sender: Any) {
-        prefTopConstraint?.constant = prefTopConstraint?.constant == 0 ? prefTopConstraintConstant : 0
+        prefConstraint.constant = prefConstraint.constant == 0 ? prefConstraintConstant : 0
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
         }

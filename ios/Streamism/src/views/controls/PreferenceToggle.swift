@@ -8,22 +8,38 @@
 
 import UIKit
 
-class PreferenceToggle: UIControl {
-    private var iconImageView = UIImageView()
-    private var prefLabel = UILabel()
+@IBDesignable class PreferenceToggle: UIControl {
+    private var imageView = UIImageView()
+    private var label = UILabel()
     
     @IBInspectable var image:UIImage? {
         didSet {
-            iconImageView.image = image
+            imageView.image = image
         }
     }
     @IBInspectable var text:String? {
         didSet {
-            prefLabel.text = text
+            label.text = text
         }
     }
-//    @IBInspectable var padding:CGFloat = 7
-    @IBInspectable var font = UIFont.systemFont(ofSize: 10.0)
+
+    @IBInspectable var fontSize:CGFloat = 10 {
+        didSet {
+            label.font = UIFont.systemFont(ofSize: fontSize)
+        }
+    }
+    
+    @IBInspectable var activeColor:UIColor = UIColor.clear {
+        didSet{
+            
+        }
+    }
+    
+    @IBInspectable var isOn:Bool = true {
+        didSet {
+            self.backgroundColor = isOn ? activeColor : UIColor.white
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,52 +52,48 @@ class PreferenceToggle: UIControl {
     }
     
     func commonInit() {
-        let height:CGFloat = ceil(self.bounds.height / 3)
+        self.clipsToBounds = true;
+//        label.backgroundColor = UIColor.cyan
+//        imageView.backgroundColor = UIColor.purple
         
-//        iconImageView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height - height)
-//        iconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-//        iconImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-//        iconImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-
-//        prefLabel.frame = CGRect(x: 0, y: self.bounds.height - height, width: self.bounds.width, height: height)
-        addSubview(prefLabel)
-        prefLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        self.trailingAnchor.constraint(equalTo: prefLabel.trailingAnchor).isActive = true
-        self.bottomAnchor.constraint(equalTo: prefLabel.bottomAnchor).isActive = true
-        prefLabel.heightAnchor.constraint(equalToConstant: height).isActive = true
+        imageView.contentMode = .scaleAspectFit
+        label.font = UIFont.systemFont(ofSize: fontSize)
+        label.textAlignment = .center
         
-        prefLabel.backgroundColor = UIColor.cyan
-        iconImageView.backgroundColor = UIColor.purple
+        addSubview(label)
+        addSubview(imageView)
         
-//        addSubview(iconImageView)
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(_:))))
     }
     
-
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-//    override func draw(_ rect: CGRect) {
-//        var textRect = CGRect.zero
-//        if let text = text {
-//            let size:CGSize = text.size(withAttributes: [NSAttributedStringKey.font: font])
-//            textRect = CGRect(x: self.bounds.midX - ceil(size.width / 2),
-//                               y: self.bounds.maxY - ceil(size.height) - padding,
-//                               width: ceil(size.width),
-//                               height: ceil(size.height))
-//
-//            text.draw(in: textRect, withAttributes: [NSAttributedStringKey.font:font])
-//        }
-//
-//
-//
-//        if let image = image {
-//            let ratio = image.size.width / image.size.height
-//            let height = self.bounds.height - textRect.height - padding * 3
-//            let width = ratio * height
-//            let imageRect = CGRect(x: self.bounds.midX - width / 2,
-//                                   y: padding,
-//                                   width: width,
-//                                   height: height)
-//            image.draw(in: imageRect, blendMode: CGBlendMode.color, alpha: 1)
-//        }
-//    }
+    override func layoutSubviews() {
+        let margins = self.layoutMarginsGuide
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        label.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        //height of this view is animated with it's parent stack view inside vc view
+        //set priority lower than required to avoid conflict
+        let lc = label.bottomAnchor.constraint(equalTo: margins.bottomAnchor)
+        lc.priority = UILayoutPriority.defaultHigh
+        lc.isActive = true
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        imageView.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: label.topAnchor).isActive = true
+        
+        super.layoutSubviews()
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+    }
+    
+    @objc func handleTap(_ sender:UITapGestureRecognizer) {
+        if sender.state == .ended {
+            self.isOn = !self.isOn
+        }
+    }
 }
