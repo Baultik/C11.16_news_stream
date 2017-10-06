@@ -17,19 +17,12 @@ class PreferenceViewController: UIViewController {
     var delegate:PreferenceDelegate?
     var preference:StreamCategoryPreference = StreamCategoryPreference.all()
     
-    @IBOutlet weak var buttonGaming: UIButton!
-    @IBOutlet weak var buttonEntertainment: UIButton!
-    @IBOutlet weak var buttonPeople: UIButton!
-    @IBOutlet weak var buttonNews: UIButton!
-    @IBOutlet weak var buttonSports: UIButton!
-    @IBOutlet weak var buttonMisc: UIButton!
-    
-    let gamingColor         = UIColor(red: 234, green: 93, blue: 83, alpha: 1)
-    let entertainmentColor  = UIColor(red: 14, green: 87, blue: 195, alpha: 1)
-    let peopleColor         = UIColor(red: 40, green: 180, blue: 197, alpha: 1)
-    let newsColor           = UIColor(red: 21, green: 128, blue: 101, alpha: 1)
-    let sportsColor         = UIColor(red: 126, green: 87, blue: 143, alpha: 1)
-    let miscColor           = UIColor(red: 208, green: 146, blue: 55, alpha: 1)
+    @IBOutlet weak var buttonGaming: PreferenceToggle!
+    @IBOutlet weak var buttonEntertainment: PreferenceToggle!
+    @IBOutlet weak var buttonPeople: PreferenceToggle!
+    @IBOutlet weak var buttonNews: PreferenceToggle!
+    @IBOutlet weak var buttonSports: PreferenceToggle!
+    @IBOutlet weak var buttonMisc: PreferenceToggle!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,34 +43,34 @@ class PreferenceViewController: UIViewController {
     }
     
     private func updateUIState() {
-        buttonGaming.isSelected = preference.hasType(.Gaming)
-        buttonEntertainment.isSelected = preference.hasType(.Entertainment)
-        buttonPeople.isSelected = preference.hasType(.People)
-        buttonNews.isSelected = preference.hasType(.News)
-        buttonSports.isSelected = preference.hasType(.Sports)
-        buttonMisc.isSelected = preference.hasType(.Misc)
+        buttonGaming.isOn = preference.hasType(.Gaming)
+        buttonEntertainment.isOn = preference.hasType(.Entertainment)
+        buttonPeople.isOn = preference.hasType(.People)
+        buttonNews.isOn = preference.hasType(.News)
+        buttonSports.isOn = preference.hasType(.Sports)
+        buttonMisc.isOn = preference.hasType(.Misc)
     }
     
-    @IBAction func preferenceChanged(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
+    @IBAction func preferenceChanged(_ sender: PreferenceToggle) {
+        sender.isOn = !sender.isOn
         switch sender {
         case buttonGaming:
-            if sender.isSelected {preference.addType(.Gaming)} else {preference.removeType(.Gaming)};
+            if sender.isOn {preference.addType(.Gaming)} else {preference.removeType(.Gaming)};
             break
         case buttonEntertainment:
-            if sender.isSelected {preference.addType(.Entertainment)} else {preference.removeType(.Entertainment)};
+            if sender.isOn {preference.addType(.Entertainment)} else {preference.removeType(.Entertainment)};
             break
         case buttonPeople:
-            if sender.isSelected {preference.addType(.People)} else {preference.removeType(.People)};
+            if sender.isOn {preference.addType(.People)} else {preference.removeType(.People)};
             break
         case buttonNews:
-            if sender.isSelected {preference.addType(.News)} else {preference.removeType(.News)};
+            if sender.isOn {preference.addType(.News)} else {preference.removeType(.News)};
             break
         case buttonSports:
-            if sender.isSelected {preference.addType(.Sports)} else {preference.removeType(.Sports)};
+            if sender.isOn {preference.addType(.Sports)} else {preference.removeType(.Sports)};
             break
         case buttonMisc:
-            if sender.isSelected {preference.addType(.Misc)} else {preference.removeType(.Misc)};
+            if sender.isOn {preference.addType(.Misc)} else {preference.removeType(.Misc)};
             break
         default:
             break
@@ -92,30 +85,5 @@ class PreferenceViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-    }
-}
-
-extension UIButton {
-    func alignContent(spacing:CGFloat = 10) {
-        if let titleLabel = titleLabel, let imageView = imageView {
-            if let title = titleLabel.text, let image = imageView.image {
-                let titleSize = NSString(string: title).size(withAttributes: [NSAttributedStringKey.font : titleLabel.font])
-                
-//                let buttonImageSize = image.size
-                
-                let topImageOffset = (frame.size.height - (titleSize.height + image.size.height + spacing)) / 2
-                let leftImageOffset = (frame.size.width - image.size.width) / 2
-                imageEdgeInsets = UIEdgeInsetsMake(topImageOffset,
-                                                   leftImageOffset,
-                                                   0,0)
-                
-                let titleTopOffset = topImageOffset + spacing + image.size.height
-                let leftTitleOffset = (frame.size.width - titleSize.width) / 2 - image.size.width
-                
-                titleEdgeInsets = UIEdgeInsetsMake(titleTopOffset,
-                                                   leftTitleOffset,
-                                                   0,0)
-            }
-        }
     }
 }

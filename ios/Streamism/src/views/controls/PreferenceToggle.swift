@@ -62,8 +62,6 @@ import UIKit
         
         addSubview(label)
         addSubview(imageView)
-        
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(_:))))
     }
     
     override func layoutSubviews() {
@@ -89,11 +87,5 @@ import UIKit
     
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-    }
-    
-    @objc func handleTap(_ sender:UITapGestureRecognizer) {
-        if sender.state == .ended {
-            self.isOn = !self.isOn
-        }
     }
 }
