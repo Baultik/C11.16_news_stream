@@ -39,7 +39,7 @@ class StreamGridCell: UICollectionViewCell {
         if let url = URL(string: url) {
             (session?.dataTask(with: url) { (data, response, error) in
                 if let error = error {
-                    print("Error \(error)")
+                    print("Grid Cell Image Load Error: \(error)")
                 } else if let data = data {
                     DispatchQueue.main.async {
                         self.streamCellImageView.image = UIImage(data: data)

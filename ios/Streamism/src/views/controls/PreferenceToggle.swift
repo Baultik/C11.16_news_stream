@@ -41,6 +41,18 @@ import UIKit
         }
     }
     
+    var categoryType:StreamCategoryType = .Gaming
+    
+    // IB: use the adapter
+    @IBInspectable var categoryTypeAdapter:String {
+        get {
+            return self.categoryType.rawValue
+        }
+        set(catType) {
+            self.categoryType = StreamCategoryType(rawValue: catType)!
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
