@@ -84,18 +84,15 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
         var offset = 0
         var i = 0
         
-       
-        
-        while i < max(oldStreamData.count,newStreamData.count) {
-            if i + offset < newStreamData.count && oldStreamData.count < newStreamData.count {
+        while i < min(oldStreamData.count,newStreamData.count) {
+            if oldStreamData.count < newStreamData.count {
                 if oldStreamData[i].streamID != newStreamData[i+offset].streamID {
                     indexes.append(IndexPath(row: i+offset, section: 0))
                     offset += 1
                     continue
                 }
-            } else if i + offset < oldStreamData.count && oldStreamData.count > newStreamData.count {
+            } else if oldStreamData.count > newStreamData.count {
                 if oldStreamData[i+offset].streamID != newStreamData[i].streamID {
-                    print("\(i+offset) : \(oldStreamData[i+offset].category) ")
                     indexes.append(IndexPath(row: i+offset, section: 0))
                     offset += 1
                     continue
@@ -104,7 +101,14 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
             i += 1
         }
         
-        print("indexes:\(indexes)")
+        //i+offset should = max count
+        //checks if there are more beyond end of min count
+        if i + offset <= max(oldStreamData.count,newStreamData.count) {
+            for j in i+offset..<max(oldStreamData.count,newStreamData.count) {
+                indexes.append(IndexPath(row: j, section: 0))
+            }
+        }
+
         return indexes
     }
     
