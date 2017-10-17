@@ -17,6 +17,7 @@
 		771C35611F4BADFD00BC3764 /* StreamCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771C35601F4BADFD00BC3764 /* StreamCategory.swift */; };
 		771C35631F4E70D900BC3764 /* StreamCategoryPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771C35621F4E70D900BC3764 /* StreamCategoryPreference.swift */; };
 		772482B71F7EF6960099E715 /* PreferenceToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772482B61F7EF6960099E715 /* PreferenceToggle.swift */; };
+		77401FAA1F969EDA0025223C /* TestStreamList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77401FA91F969EDA0025223C /* TestStreamList.swift */; };
 		774BA4B21F900FE20055971E /* TestStreamCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BA4B11F900FE20055971E /* TestStreamCategory.swift */; };
 		774BA4B41F9012030055971E /* TestStreamCategoryPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BA4B31F9012030055971E /* TestStreamCategoryPreference.swift */; };
 		774BA4B61F9016530055971E /* TestStreamCategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BA4B51F9016530055971E /* TestStreamCategoryList.swift */; };
@@ -65,6 +66,7 @@
 		771C35601F4BADFD00BC3764 /* StreamCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamCategory.swift; path = src/model/StreamCategory.swift; sourceTree = "<group>"; };
 		771C35621F4E70D900BC3764 /* StreamCategoryPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamCategoryPreference.swift; path = src/model/StreamCategoryPreference.swift; sourceTree = "<group>"; };
 		772482B61F7EF6960099E715 /* PreferenceToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreferenceToggle.swift; path = Streamism/src/views/controls/PreferenceToggle.swift; sourceTree = SOURCE_ROOT; };
+		77401FA91F969EDA0025223C /* TestStreamList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStreamList.swift; sourceTree = "<group>"; };
 		774BA4B11F900FE20055971E /* TestStreamCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStreamCategory.swift; sourceTree = "<group>"; };
 		774BA4B31F9012030055971E /* TestStreamCategoryPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStreamCategoryPreference.swift; sourceTree = "<group>"; };
 		774BA4B51F9016530055971E /* TestStreamCategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStreamCategoryList.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				774BA4B11F900FE20055971E /* TestStreamCategory.swift */,
 				774BA4B31F9012030055971E /* TestStreamCategoryPreference.swift */,
 				774BA4B51F9016530055971E /* TestStreamCategoryList.swift */,
+				77401FA91F969EDA0025223C /* TestStreamList.swift */,
 			);
 			path = StreamismTests;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77401FAA1F969EDA0025223C /* TestStreamList.swift in Sources */,
 				7793A5A01F3BD3C80085085B /* TestStream.swift in Sources */,
 				774BA4B61F9016530055971E /* TestStreamCategoryList.swift in Sources */,
 				774BA4B41F9012030055971E /* TestStreamCategoryPreference.swift in Sources */,

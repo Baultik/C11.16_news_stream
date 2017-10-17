@@ -51,7 +51,7 @@ class TestStreamCategoryList: XCTestCase {
     }
     
     func testShuffle() {
-        
+        XCTAssertNotEqual(catList.streamList![0].category, catList.streamList![1].category)
     }
     
 }
