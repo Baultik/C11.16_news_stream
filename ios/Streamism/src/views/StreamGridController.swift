@@ -18,7 +18,8 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
     
     //TODO: figure out best way to get preference data
     private var preference:StreamCategoryPreference = StreamCategoryPreference.all()
-
+    private var pendingUpdateButton:UIBarButtonItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dbs = StreamDatabase()
@@ -30,7 +31,7 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
         streamFlowLayout.minimumLineSpacing = 0
         collectionView?.collectionViewLayout = streamFlowLayout
         
-        
+        pendingUpdateButton = UIBarButtonItem(title: "!", style: .plain, target: self, action: #selector(StreamGridController.updateWithPendingData))
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,7 +71,15 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
     }
     
     @objc private func updateWithPendingData() {
-        navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+        //updating to pending so null the button indicating pending updates are available
+        if let navItem = navigationController?.navigationBar.topItem {
+            var barItems = navItem.rightBarButtonItems!
+            if (barItems.contains(pendingUpdateButton!)) {
+                barItems.remove(at: barItems.index(of: pendingUpdateButton!)!)
+            }
+            navItem.setRightBarButtonItems(barItems, animated: true)
+        }
+
         if let pending = pendingStreamList {
             fullStreamList = pending
             pendingStreamList = nil
@@ -119,8 +128,13 @@ class StreamGridController: UICollectionViewController,StreamDatabaseDelegate {
             updateWithPendingData()
         } else {
             //show notification that new streams are available
-            let up = UIBarButtonItem(title: "!", style: .plain, target: self, action: #selector(StreamGridController.updateWithPendingData))
-            navigationController?.navigationBar.topItem?.rightBarButtonItem = up
+            if let navItem = navigationController?.navigationBar.topItem {
+                var barItems = navItem.rightBarButtonItems!
+                if (!barItems.contains(pendingUpdateButton!)) {
+                    barItems.append(pendingUpdateButton!)
+                }
+                navItem.setRightBarButtonItems(barItems, animated: true)
+            }
         }
     }
     

@@ -54,6 +54,7 @@
                                 <action selector="togglePreferenceView:" destination="lgF-Gs-5S9" id="if8-Fi-Pag"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="VQ9-Zb-rcM"/>
                     </navigationItem>
                     <connections>
                         <outlet property="prefConstraint" destination="NEO-D7-D6d" id="CDU-Ql-Y0E"/>
@@ -160,35 +161,59 @@
             <point key="canvasLocation" x="-42.399999999999999" y="-545.57721139430294"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="ynQ-rk-tdW">
+        <scene sceneID="KD7-Ju-aDU">
             <objects>
-                <viewController id="byl-VU-aJC" sceneMemberID="viewController">
+                <viewController id="SYN-xl-vWW" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Jau-vc-C9J"/>
-                        <viewControllerLayoutGuide type="bottom" id="FOp-jq-PGx"/>
+                        <viewControllerLayoutGuide type="top" id="Tbb-di-nNP"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Yv-0Q-SW6"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gMV-Kr-8AL">
+                    <view key="view" contentMode="scaleToFill" id="Xqu-p0-NBw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AiW-EC-Mgf">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8M9-J6-2ce">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <tabBarItem title="Yo" image="GamingIcon" landscapeImage="GamingIcon" selectedImage="GamingIcon" id="6aN-3r-MF5"/>
-                                    <tabBarItem systemItem="more" id="96S-Wy-Pa1"/>
+                                    <navigationItem title="Title" id="zsm-ff-gIl">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="GHR-LA-qaM"/>
+                                    </navigationItem>
                                 </items>
-                                <color key="barTintColor" red="0.39835223269999998" green="1" blue="0.58515433670000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="selectedImageTintColor" red="1" green="0.12695206079999999" blue="0.49950969439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </tabBar>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" text="iii" placeholder="Enter stuff" translatesAutoresizingMaskIntoConstraints="NO" id="okd-D4-r7T">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="SYN-xl-vWW" id="jeA-oR-RrO"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="KTC-XQ-Lgn" id="cw5-sD-hA3"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xk5-pV-3iT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dq2-WK-qaN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="KTC-XQ-Lgn">
+                    <connections>
+                        <outlet property="delegate" destination="SYN-xl-vWW" id="4lr-ux-RFS"/>
+                        <outlet property="searchBar" destination="okd-D4-r7T" id="hou-kN-3He"/>
+                        <outlet property="searchContentsController" destination="SYN-xl-vWW" id="jFN-GX-go9"/>
+                        <outlet property="searchResultsDataSource" destination="SYN-xl-vWW" id="QfZ-qR-g4D"/>
+                        <outlet property="searchResultsDelegate" destination="SYN-xl-vWW" id="bdt-EC-fCu"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="751" y="-411"/>
+            <point key="canvasLocation" x="822" y="-341"/>
         </scene>
         <!--Preference View Controller-->
         <scene sceneID="d21-7T-DhQ">
