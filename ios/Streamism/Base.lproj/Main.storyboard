@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -54,7 +54,11 @@
                                 <action selector="togglePreferenceView:" destination="lgF-Gs-5S9" id="if8-Fi-Pag"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="VQ9-Zb-rcM"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="VQ9-Zb-rcM">
+                            <connections>
+                                <action selector="doSearch:" destination="lgF-Gs-5S9" id="tt2-Aq-3E9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="prefConstraint" destination="NEO-D7-D6d" id="CDU-Ql-Y0E"/>
@@ -160,10 +164,10 @@
             </objects>
             <point key="canvasLocation" x="-42.399999999999999" y="-545.57721139430294"/>
         </scene>
-        <!--View Controller-->
+        <!--Stream Search Controller-->
         <scene sceneID="KD7-Ju-aDU">
             <objects>
-                <viewController id="SYN-xl-vWW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StreamSearch" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SYN-xl-vWW" customClass="StreamSearchController" customModule="Streamism" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tbb-di-nNP"/>
                         <viewControllerLayoutGuide type="bottom" id="0Yv-0Q-SW6"/>
@@ -175,45 +179,77 @@
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8M9-J6-2ce">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Title" id="zsm-ff-gIl">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="GHR-LA-qaM"/>
-                                    </navigationItem>
-                                </items>
                             </navigationBar>
-                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" text="iii" placeholder="Enter stuff" translatesAutoresizingMaskIntoConstraints="NO" id="okd-D4-r7T">
-                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
-                                <connections>
-                                    <outlet property="delegate" destination="SYN-xl-vWW" id="jeA-oR-RrO"/>
-                                </connections>
-                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Q4r-mv-OlS">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="WZz-Xp-yRN">
+                                    <size key="itemSize" width="200" height="130"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Stream" id="p2s-qX-7EU" customClass="StreamGridCell" customModule="Streamism" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="130"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SKQ-1M-CWD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="130"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Fk-2T-Qvq">
+                                                    <rect key="frame" x="10" y="10" width="180" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Stream name">
+                                                            <attributes>
+                                                                <font key="NSFont" size="24" name=".SFNSText"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgl-ko-UrZ">
+                                                    <rect key="frame" x="10" y="40" width="180" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Liric">
+                                                            <attributes>
+                                                                <font key="NSFont" size="18" name=".SFNSText"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="streamCellImageView" destination="SKQ-1M-CWD" id="aW9-01-wU2"/>
+                                            <outlet property="streamCellName" destination="dgl-ko-UrZ" id="KZr-2Z-W1m"/>
+                                            <outlet property="streamCellTitle" destination="7Fk-2T-Qvq" id="uyh-xZ-KSy"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Q4r-mv-OlS" secondAttribute="trailing" id="4bJ-im-NH5"/>
+                            <constraint firstItem="Q4r-mv-OlS" firstAttribute="top" secondItem="Tbb-di-nNP" secondAttribute="bottom" id="fKp-lk-jiS"/>
+                            <constraint firstItem="Q4r-mv-OlS" firstAttribute="leading" secondItem="Xqu-p0-NBw" secondAttribute="leading" id="qWy-tp-V8F"/>
+                            <constraint firstItem="0Yv-0Q-SW6" firstAttribute="top" secondItem="Q4r-mv-OlS" secondAttribute="bottom" id="xi2-P5-TiD"/>
+                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="KTC-XQ-Lgn" id="cw5-sD-hA3"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dq2-WK-qaN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="KTC-XQ-Lgn">
-                    <connections>
-                        <outlet property="delegate" destination="SYN-xl-vWW" id="4lr-ux-RFS"/>
-                        <outlet property="searchBar" destination="okd-D4-r7T" id="hou-kN-3He"/>
-                        <outlet property="searchContentsController" destination="SYN-xl-vWW" id="jFN-GX-go9"/>
-                        <outlet property="searchResultsDataSource" destination="SYN-xl-vWW" id="QfZ-qR-g4D"/>
-                        <outlet property="searchResultsDelegate" destination="SYN-xl-vWW" id="bdt-EC-fCu"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="822" y="-341"/>
+            <point key="canvasLocation" x="761" y="-273"/>
         </scene>
         <!--Preference View Controller-->
         <scene sceneID="d21-7T-DhQ">
@@ -367,7 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGE-4J-04V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="751" y="18"/>
+            <point key="canvasLocation" x="761" y="133"/>
         </scene>
     </scenes>
     <resources>

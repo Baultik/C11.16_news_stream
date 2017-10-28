@@ -32,6 +32,7 @@
 		77A50A231F439FB300A3D5BA /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A50A221F439FB300A3D5BA /* Stream.swift */; };
 		77A50A281F43BCF300A3D5BA /* StreamFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A50A271F43BCF300A3D5BA /* StreamFlowLayout.swift */; };
 		77A50A2A1F43C0A800A3D5BA /* StreamGridController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A50A291F43C0A800A3D5BA /* StreamGridController.swift */; };
+		77E491D11FA3FB1C00A7AF7C /* StreamSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E491D01FA3FB1C00A7AF7C /* StreamSearchController.swift */; };
 		856A34880AB37662D9B67C31 /* Pods_Streamism.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4FDFCAE34FA39C2F806DA0 /* Pods_Streamism.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		77A50A221F439FB300A3D5BA /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stream.swift; path = src/model/Stream.swift; sourceTree = "<group>"; };
 		77A50A271F43BCF300A3D5BA /* StreamFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamFlowLayout.swift; path = src/views/StreamFlowLayout.swift; sourceTree = "<group>"; };
 		77A50A291F43C0A800A3D5BA /* StreamGridController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamGridController.swift; path = src/views/StreamGridController.swift; sourceTree = "<group>"; };
+		77E491D01FA3FB1C00A7AF7C /* StreamSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StreamSearchController.swift; path = src/views/StreamSearchController.swift; sourceTree = "<group>"; };
 		A9CF2D51E829ECE1697E332B /* Pods-Streamism.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Streamism.release.xcconfig"; path = "Pods/Target Support Files/Pods-Streamism/Pods-Streamism.release.xcconfig"; sourceTree = "<group>"; };
 		B2484B119999F179F5208FB4 /* Pods-StreamismTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreamismTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreamismTests/Pods-StreamismTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C3BE6E0F10FBD02F6C5CDE48 /* Pods_StreamismUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreamismUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +220,7 @@
 				77A50A291F43C0A800A3D5BA /* StreamGridController.swift */,
 				7760EB961F45016D008AD53D /* StreamGridCell.swift */,
 				7701AF721F6361D6006D3804 /* PreferenceViewController.swift */,
+				77E491D01FA3FB1C00A7AF7C /* StreamSearchController.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				77A50A1D1F439C0D00A3D5BA /* AppDelegate.swift in Sources */,
 				77A50A231F439FB300A3D5BA /* Stream.swift in Sources */,
 				7760EB971F45016D008AD53D /* StreamGridCell.swift in Sources */,
+				77E491D11FA3FB1C00A7AF7C /* StreamSearchController.swift in Sources */,
 				77A50A2A1F43C0A800A3D5BA /* StreamGridController.swift in Sources */,
 				771C355F1F4B91FA00BC3764 /* StreamDatabase.swift in Sources */,
 				77A50A281F43BCF300A3D5BA /* StreamFlowLayout.swift in Sources */,

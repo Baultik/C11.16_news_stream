@@ -45,5 +45,20 @@ class MainViewController: UIViewController,PreferenceDelegate {
             self.view.layoutIfNeeded()
         }
     }
+    @IBAction func doSearch(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let searchResultsController = storyboard.instantiateViewController(withIdentifier: "StreamSearch") as? StreamSearchController else {
+            fatalError("Unable to instatiate a SearchResultsViewController from the storyboard.")
+        }
+        
+        let searchController = UISearchController(searchResultsController: searchResultsController)
+        //searchController.searchResultsUpdater = searchResultsController
+        searchController.searchBar.placeholder = NSLocalizedString("Enter search term", comment: "")
+        
+        let searchContainer = UISearchContainerViewController(searchController: searchController)
+        searchContainer.title = NSLocalizedString("Search", comment: "")
+        
+        navigationController?.show(searchContainer, sender: sender)
+    }
 }
 
