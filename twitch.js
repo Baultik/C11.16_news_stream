@@ -33,8 +33,15 @@ streamismTwitch.prototype.parse = function (data){
                 stream.category = this.categories[3];
                 break;
             case "MUSIC":
+            case "POKER":
+            case "CASINO":
+            case "ALWAYS ON":
                 set = this.streamSet.find(this.categories[1]);//ent
                 stream.category = this.categories[1];
+                break;
+            case "NBA G LEAGUE":
+                set = this.streamSet.find(this.categories[4]);//sports
+                stream.category = this.categories[4];
                 break;
         }
 
